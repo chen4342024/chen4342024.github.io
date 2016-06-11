@@ -1663,7 +1663,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #131163;
+  background: #384934;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2294,4 +2294,9 @@ a.search-result {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+.copy-right .a {
+  color: #337ab7;
+  text-decoration: none;
+  border: none;
 }
