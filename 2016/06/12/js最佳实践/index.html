@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="变量,作用域," />
+  <meta name="keywords" content="优化 - 可维护性," />
 
 
 
@@ -84,37 +84,70 @@
 
 
 
-<meta name="description" content="变量基本类型 和 引用类型 的值
-基本类型有：Undefined, Null, Boolean, Number, String (与java不同，string也是基本类型)
-引用类型是指可能由多个值构成的对象
+<meta name="description" content="js 最佳实践可维护性什么是可维护的代码
+可理解性：他人可以接手代码并理解它
+直观性  : 代码逻辑清晰
+可适应性 ： 代码以一种数据变化不要求重写的方法编写
+可扩展性  ：代码已考虑到未来允许对核心功能进行扩展
+可调试性　：　出错时，方便定位问题所在
 
-基本类型值和引用类型值的特点：
-基本类型值在内存中占据固定大小的空间，因此保存在栈内存中
-引用类型的值是对象，保存在堆内存中
-包含引用类型的变量实际上包含的并不是对象本身，而是指向该对象的">
+代码约定可读性
+代码格式化
+适当添加注释
+函数与方法
+大段代码
+复杂算法
+Hack，对浏览器的一些hack
+
+
+
+变量与函数命名
+变量名应为名词">
 <meta property="og:type" content="article">
-<meta property="og:title" content="变量、作用域和内存问题">
-<meta property="og:url" content="http://chen4342024.github.io/2016/06/10/变量、作用域和内存问题/index.html">
+<meta property="og:title" content="js最佳实践">
+<meta property="og:url" content="http://chen4342024.github.io/2016/06/12/js最佳实践/index.html">
 <meta property="og:site_name" content="Andy_chen的博客">
-<meta property="og:description" content="变量基本类型 和 引用类型 的值
-基本类型有：Undefined, Null, Boolean, Number, String (与java不同，string也是基本类型)
-引用类型是指可能由多个值构成的对象
+<meta property="og:description" content="js 最佳实践可维护性什么是可维护的代码
+可理解性：他人可以接手代码并理解它
+直观性  : 代码逻辑清晰
+可适应性 ： 代码以一种数据变化不要求重写的方法编写
+可扩展性  ：代码已考虑到未来允许对核心功能进行扩展
+可调试性　：　出错时，方便定位问题所在
 
-基本类型值和引用类型值的特点：
-基本类型值在内存中占据固定大小的空间，因此保存在栈内存中
-引用类型的值是对象，保存在堆内存中
-包含引用类型的变量实际上包含的并不是对象本身，而是指向该对象的">
-<meta property="og:updated_time" content="2016-06-11T06:52:35.990Z">
+代码约定可读性
+代码格式化
+适当添加注释
+函数与方法
+大段代码
+复杂算法
+Hack，对浏览器的一些hack
+
+
+
+变量与函数命名
+变量名应为名词">
+<meta property="og:updated_time" content="2016-06-12T15:04:25.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="变量、作用域和内存问题">
-<meta name="twitter:description" content="变量基本类型 和 引用类型 的值
-基本类型有：Undefined, Null, Boolean, Number, String (与java不同，string也是基本类型)
-引用类型是指可能由多个值构成的对象
+<meta name="twitter:title" content="js最佳实践">
+<meta name="twitter:description" content="js 最佳实践可维护性什么是可维护的代码
+可理解性：他人可以接手代码并理解它
+直观性  : 代码逻辑清晰
+可适应性 ： 代码以一种数据变化不要求重写的方法编写
+可扩展性  ：代码已考虑到未来允许对核心功能进行扩展
+可调试性　：　出错时，方便定位问题所在
 
-基本类型值和引用类型值的特点：
-基本类型值在内存中占据固定大小的空间，因此保存在栈内存中
-引用类型的值是对象，保存在堆内存中
-包含引用类型的变量实际上包含的并不是对象本身，而是指向该对象的">
+代码约定可读性
+代码格式化
+适当添加注释
+函数与方法
+大段代码
+复杂算法
+Hack，对浏览器的一些hack
+
+
+
+变量与函数命名
+变量名应为名词">
 
 
 
@@ -135,9 +168,9 @@
 
 
 
-  <link rel="canonical" href="http://chen4342024.github.io/2016/06/10/变量、作用域和内存问题/"/>
+  <link rel="canonical" href="http://chen4342024.github.io/2016/06/12/js最佳实践/"/>
 
-  <title> 变量、作用域和内存问题 | Andy_chen的博客 </title>
+  <title> js最佳实践 | Andy_chen的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +310,7 @@
             
             
               
-                变量、作用域和内存问题
+                js最佳实践
               
             
           </h1>
@@ -289,8 +322,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-10T23:24:20+08:00" content="2016-06-10">
-              2016-06-10
+            <time itemprop="dateCreated" datetime="2016-06-12T22:57:54+08:00" content="2016-06-12">
+              2016-06-12
             </time>
           </span>
 
@@ -319,8 +352,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/10/变量、作用域和内存问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/10/变量、作用域和内存问题/" itemprop="commentsCount"></span>
+                <a href="/2016/06/12/js最佳实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/12/js最佳实践/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -330,7 +363,7 @@
 
           
           
-             <span id="/2016/06/10/变量、作用域和内存问题/" class="leancloud_visitors" data-flag-title="变量、作用域和内存问题">
+             <span id="/2016/06/12/js最佳实践/" class="leancloud_visitors" data-flag-title="js最佳实践">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -352,72 +385,67 @@
       
 
       
-        <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="基本类型-和-引用类型-的值"><a href="#基本类型-和-引用类型-的值" class="headerlink" title="基本类型 和 引用类型 的值"></a>基本类型 和 引用类型 的值</h4><ul>
-<li>基本类型有：Undefined, Null, Boolean, Number, String (与java不同，string也是基本类型)</li>
-<li>引用类型是指可能由多个值构成的对象</li>
+        <h2 id="js-最佳实践"><a href="#js-最佳实践" class="headerlink" title="js 最佳实践"></a>js 最佳实践</h2><h3 id="可维护性"><a href="#可维护性" class="headerlink" title="可维护性"></a>可维护性</h3><h4 id="什么是可维护的代码"><a href="#什么是可维护的代码" class="headerlink" title="什么是可维护的代码"></a>什么是可维护的代码</h4><ul>
+<li>可理解性：他人可以接手代码并理解它</li>
+<li>直观性  : 代码逻辑清晰</li>
+<li>可适应性 ： 代码以一种数据变化不要求重写的方法编写</li>
+<li>可扩展性  ：代码已考虑到未来允许对核心功能进行扩展</li>
+<li>可调试性　：　出错时，方便定位问题所在</li>
 </ul>
-<h5 id="基本类型值和引用类型值的特点："><a href="#基本类型值和引用类型值的特点：" class="headerlink" title="基本类型值和引用类型值的特点："></a>基本类型值和引用类型值的特点：</h5><ul>
-<li>基本类型值在内存中占据固定大小的空间，因此保存在栈内存中</li>
-<li>引用类型的值是对象，保存在堆内存中</li>
-<li>包含引用类型的变量实际上包含的并不是对象本身，而是指向该对象的指针</li>
-<li>一个变量赋值给另一个变量，如果是基本类型，会创建这个值的副本，如果是引用类型，复制的其实是指针。最终两个变量指向同一个对象。</li>
+<h4 id="代码约定"><a href="#代码约定" class="headerlink" title="代码约定"></a>代码约定</h4><h5 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h5><ul>
+<li>代码格式化</li>
+<li>适当添加注释<ul>
+<li>函数与方法</li>
+<li>大段代码</li>
+<li>复杂算法</li>
+<li>Hack，对浏览器的一些hack</li>
 </ul>
+</li>
+</ul>
+<h5 id="变量与函数命名"><a href="#变量与函数命名" class="headerlink" title="变量与函数命名"></a>变量与函数命名</h5><ul>
+<li>变量名应为名词</li>
+<li>函数名应为动词开始</li>
+<li>变量和函数应使用合乎逻辑的名字</li>
+</ul>
+<h5 id="变量类型透明"><a href="#变量类型透明" class="headerlink" title="变量类型透明"></a>变量类型透明</h5><p>由于js 中的变量是松散类型的，很容易就忘记变量所应包含的数据类型。<br>解决方案有三种：</p>
 <ol>
-<li><p>引用类型可以添加属性，基本类型不可以。例如: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = &quot;123&quot;；</span><br><span class="line">a.age = 21;</span><br><span class="line">alert(a.age);//undefined</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数是按值传递参数的，而非按引用传递参数。（相当于被传递的值会复制给函数的参数，基本类型和引用类型各自的复制不同）</p>
-</li>
-<li>检测类型</li>
+<li>初始化时候，初始化一个值，暗示它将来如何使用</li>
+<li>命名钱添加字符 ， 例如加 o 表示对象。缺点是使代码不直观</li>
+<li>每个变量使用类型注释。 </li>
 </ol>
-<ul>
-<li>typeof   基本类型可以有效的判别基本类型</li>
-<li>instanceof 来判别某个值是何种对象</li>
-</ul>
-<h4 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h4><ol>
-<li>执行环境（作用域）<ul>
-<li>执行环境分为全局环境和函数执行环境</li>
-<li>每次进入新的执行环境，会创建新的作用域链</li>
-<li>作用域链中，局部的环境，有权访问父级的作用域，无权访问子级作用域</li>
-<li>执行环境有助于确定何时释放内存</li>
-</ul>
+<p>以上三种方法，不知何种才是好一点的做法。</p>
+<h4 id="松散耦合"><a href="#松散耦合" class="headerlink" title="松散耦合"></a>松散耦合</h4><ul>
+<li>解耦 HTML / javascript<br>HTML呈现应尽可能与javascript分离。更改行为只需要在js中进行，更改标记则只在html文件中。</li>
+<li>解耦CSS / javascript<br>尽量不在js中更改css，如element.style.color=”red”;而应该改为用class</li>
+<li>解耦应用逻辑 / 事件处理程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//事件处理程序</span><br><span class="line">function handlerClick(event)&#123;</span><br><span class="line">    var target = event.target;</span><br><span class="line">    var value = target.value;</span><br><span class="line">    dosomething... //应用逻辑</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>作用域链延长：</p>
-<ul>
-<li>with语句</li>
-<li>try-catch语句的catch块</li>
-<li>catch块中，只对传进来的e特殊处理，在catch声明的变量，依然能在catch外部块访问到，说明他并不是单独的作用域</li>
 </ul>
-</li>
-<li><p>js 没有块级作用域<br>js的作用域是函数级的，没有块级作用域，这点经常会导致理解上的错误。<br>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0 ; i &lt; 10 ; i++)&#123;</span><br><span class="line">      doSomeThing();</span><br><span class="line">&#125;</span><br><span class="line">alert(i); // 10</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>变量名i在第四行仍然可以打印出来，是因为，for循环中，并不是独立的作用域。var i , 会被提升到for循环所在的函数。所以i仍然存在</p>
+<p>可更改为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//事件处理程序</span><br><span class="line">function handlerClick(event)&#123;</span><br><span class="line">    var target = event.target;</span><br><span class="line">    var value = target.value;</span><br><span class="line">    xxx();</span><br><span class="line">&#125;</span><br><span class="line">//应用逻辑</span><br><span class="line">function xxx()&#123;</span><br><span class="line">    dosomething ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样解耦应用逻辑与事件处理程序有几个好处，首先，让你可以更容易更改触发特定过程的事件，例如原先由鼠标点击触发，可以很方便改为用按键触发，其次，方便进行单元测试.<br>解耦应用逻辑 / 事件处理程序原则：</p>
 <blockquote>
-<p>变量名提升：使用var声明的变量会自动被添加到最接近的环境中，而没用var的，则会添加到全局环境中 </p>
-</blockquote>
-<h4 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h4><ol>
-<li>标记清除<ul>
-<li>离开作用域的值自动被标记为可回收。因此在垃圾收集阶段将被回收</li>
-<li>目前主流的收集算法是标记清除</li>
+<ul>
+<li>勿将event对象传给其他方法，只传来自event对象中所需的数据</li>
+<li>任何可以在应用层面的动作都应该可以在不执行事件的情况下进行</li>
+<li>任何事件处理程序都应该处理事件，然后将处理转交给应用逻辑</li>
 </ul>
-</li>
-<li>引用计数<ul>
-<li>引用计数在循环引用的时候，可能导致内存泄漏</li>
-<li>应该在变量不需要用到的时候解除引用，有助于解除循环引用，并且有效的垃圾回收</li>
-</ul>
-</li>
-<li>管理内存：为了确保占用最少的内存让页面获得更好的性能，则需要解除引用（当变量不在有用，将其置为null）；<blockquote>
-<p>注意，解除引用后，并不意味着立即被回收，只有下次垃圾收集器执行的时候，才会真正回收</p>
 </blockquote>
+<h4 id="编程实践"><a href="#编程实践" class="headerlink" title="编程实践"></a>编程实践</h4><ol>
+<li>尊重对象所有权<br>永远不要修改不是由你所有的对象</li>
+<li>避免全局量<br>只声明单一的全局变量，作为一个容器，其中定义了其他对象。这种方式叫做命名空间。<br>命名空间有助于确保代码可以在同一个页面上与其他代码以无害的方式一起工作</li>
+<li>避免与null比较<br>如果看到了与null比较的代码，首先需要确定的是，是否该if语句仅仅判断null就行。大多数情况下，我们是想要判断是否是确定的类型。<br>null比较越少，我们越容易确定代码的目的，以消除不必要的错误</li>
+<li>使用常量<br>关键在于将数据和使用它的逻辑进行分离。以下情况应使用常量：<ul>
+<li>多处用到的值都应该抽取到一个常量。这在修改的时候也不会容易修改漏掉</li>
+<li>用户界面字符串：用于显示给用户看的字符串，都应该抽取出来方便国际化</li>
+<li>URLs ： 在web应用中，资源位置容易变更，所以推荐使用常量</li>
+<li>任何可能会更改的值</li>
+</ul>
 </li>
 </ol>
-<p>﻿</p>
+<h3 id="性能（待补充）"><a href="#性能（待补充）" class="headerlink" title="性能（待补充）"></a>性能（待补充）</h3><p>﻿</p>
 <hr>
 <blockquote>
 <p>关于作者：<br>AndyChen，前端开发，Hybrid App<br>联系方式：374664805@qq.com<br>博客：<a href="http://chen4342024.github.io/">http://chen4342024.github.io/</a></p>
-<p>本文为原创文章，因此转载请保留原出处<br>本文永久链接：<a href="http://chen4342024.github.io/2016/06/10/变量、作用域和内存问题/">http://chen4342024.github.io/2016/06/10/变量、作用域和内存问题/</a></p>
+<p>本文为原创文章，因此转载请保留原出处<br>本文永久链接：<a href="http://chen4342024.github.io/2016/06/12/js最佳实践/">http://chen4342024.github.io/2016/06/12/js最佳实践/</a></p>
 </blockquote>
 
       
@@ -461,9 +489,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/变量/" rel="tag">#变量</a>
-          
-            <a href="/tags/作用域/" rel="tag">#作用域</a>
+            <a href="/tags/优化-可维护性/" rel="tag">#优化 - 可维护性</a>
           
         </div>
       
@@ -472,12 +498,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/06/12/使用Fiddler调试微信jssdk/" rel="next" title="使用Fiddler调试微信jssdk">
+                <i class="fa fa-chevron-left"></i> 使用Fiddler调试微信jssdk
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/12/使用Fiddler调试微信jssdk/" rel="prev" title="使用Fiddler调试微信jssdk">
-                使用Fiddler调试微信jssdk <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/12/js高级技巧/" rel="prev" title="js高级技巧">
+                js高级技巧 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -504,8 +534,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/10/变量、作用域和内存问题/"
-           data-title="变量、作用域和内存问题" data-url="http://chen4342024.github.io/2016/06/10/变量、作用域和内存问题/">
+      <div class="ds-thread" data-thread-key="2016/06/12/js最佳实践/"
+           data-title="js最佳实践" data-url="http://chen4342024.github.io/2016/06/12/js最佳实践/">
       </div>
     
   </div>
@@ -625,7 +655,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本类型-和-引用类型-的值"><span class="nav-number">1.1.</span> <span class="nav-text">基本类型 和 引用类型 的值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本类型值和引用类型值的特点："><span class="nav-number">1.1.1.</span> <span class="nav-text">基本类型值和引用类型值的特点：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行环境及作用域"><span class="nav-number">1.2.</span> <span class="nav-text">执行环境及作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垃圾回收"><span class="nav-number">1.3.</span> <span class="nav-text">垃圾回收</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-最佳实践"><span class="nav-number">1.</span> <span class="nav-text">js 最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可维护性"><span class="nav-number">1.1.</span> <span class="nav-text">可维护性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是可维护的代码"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是可维护的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码约定"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码约定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可读性"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">可读性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量与函数命名"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">变量与函数命名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量类型透明"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">变量类型透明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#松散耦合"><span class="nav-number">1.1.3.</span> <span class="nav-text">松散耦合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编程实践"><span class="nav-number">1.1.4.</span> <span class="nav-text">编程实践</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能（待补充）"><span class="nav-number">1.2.</span> <span class="nav-text">性能（待补充）</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -3,6 +3,74 @@
 
 
     
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/12/js%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2016-06-12T15:15:28.753Z</lastmod>
+    <data>
+        <display>
+        <title>js高级技巧</title>
+        <pubTime>2016-06-12T15:13:50.000Z</pubTime>
+        
+        <tag>js高级函数</tag>
+         
+        <tag>节流函数</tag>
+         
+        <tag>函数柯里化</tag>
+         
+        <tag>数组分块</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript高级程序设计" url="http://chen4342024.github.io/categories/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/12/js%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2016-06-12T15:04:25.483Z</lastmod>
+    <data>
+        <display>
+        <title>js最佳实践</title>
+        <pubTime>2016-06-12T14:57:54.000Z</pubTime>
+        
+        <tag>优化 - 可维护性</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript高级程序设计" url="http://chen4342024.github.io/categories/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/12/%E4%BD%BF%E7%94%A8Fiddler%E8%B0%83%E8%AF%95%E5%BE%AE%E4%BF%A1jssdk/</loc>
+    <lastmod>2016-06-12T14:37:59.081Z</lastmod>
+    <data>
+        <display>
+        <title>使用Fiddler调试微信jssdk</title>
+        <pubTime>2016-06-12T14:34:54.000Z</pubTime>
+        
+        <tag>微信</tag>
+         
+        <tag>Fiddler</tag>
+         
+         
+           
+             
+              <breadCrumb title="微信开发" url="http://chen4342024.github.io/categories/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://chen4342024.github.io/2016/06/10/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/</loc>
