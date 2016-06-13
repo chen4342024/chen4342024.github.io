@@ -1,0 +1,1005 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,引用类型," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="引用类型引用类型的值（对象）是引用类型的一个实例。在ECMAScript中，引用类型是一种数据结构，将数据和功能组织在一起
+Object 对象创建Object实例方法有两种：
+
+使用构造方法：new Object();
+使用对象字面量 var obj = { name：&amp;#39;andy chen&amp;#39; }
+
+
+使用对象字面量定义对象的时候，实际上并不会调用构造方法，推荐使用对象字面量方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="引用类型">
+<meta property="og:url" content="http://chen4342024.github.io/2016/06/13/引用类型/index.html">
+<meta property="og:site_name" content="Andy_chen的博客">
+<meta property="og:description" content="引用类型引用类型的值（对象）是引用类型的一个实例。在ECMAScript中，引用类型是一种数据结构，将数据和功能组织在一起
+Object 对象创建Object实例方法有两种：
+
+使用构造方法：new Object();
+使用对象字面量 var obj = { name：&amp;#39;andy chen&amp;#39; }
+
+
+使用对象字面量定义对象的时候，实际上并不会调用构造方法，推荐使用对象字面量方法">
+<meta property="og:updated_time" content="2016-06-13T15:57:38.590Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="引用类型">
+<meta name="twitter:description" content="引用类型引用类型的值（对象）是引用类型的一个实例。在ECMAScript中，引用类型是一种数据结构，将数据和功能组织在一起
+Object 对象创建Object实例方法有两种：
+
+使用构造方法：new Object();
+使用对象字面量 var obj = { name：&amp;#39;andy chen&amp;#39; }
+
+
+使用对象字面量定义对象的时候，实际上并不会调用构造方法，推荐使用对象字面量方法">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://chen4342024.github.io/2016/06/13/引用类型/"/>
+
+  <title> 引用类型 | Andy_chen的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Andy_chen的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                引用类型
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-13T23:50:07+08:00" content="2016-06-13">
+              2016-06-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript高级程序设计/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript高级程序设计</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/13/引用类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/13/引用类型/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/13/引用类型/" class="leancloud_visitors" data-flag-title="引用类型">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>引用类型的值（对象）是引用类型的一个实例。在ECMAScript中，引用类型是一种数据结构，将数据和功能组织在一起</p>
+<h4 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a>Object 对象</h4><p><strong>创建Object实例方法有两种：</strong></p>
+<ol>
+<li>使用构造方法：<code>new Object();</code></li>
+<li>使用对象字面量 <code>var obj = { name：&#39;andy chen&#39; }</code></li>
+</ol>
+<blockquote>
+<p>使用对象字面量定义对象的时候，实际上并不会调用构造方法，推荐使用对象字面量方法</p>
+</blockquote>
+<p>访问对象属性的方法也有两种：</p>
+<ol>
+<li>点表示法  例如： <code>console.log(obj.name)</code></li>
+<li>方括号法  例如： <code>console.log(obj[&quot;name&quot;])</code><a id="more"></a>
+</li>
+</ol>
+<blockquote>
+<p>通常，除了使用变量来访问属性，否则建议用点表示法 </p>
+</blockquote>
+<h4 id="Array-对象-："><a href="#Array-对象-：" class="headerlink" title="Array 对象 ："></a>Array 对象 ：</h4><p><strong>创建Array数组也有两种方法：</strong></p>
+<ol>
+<li><p>使用构造方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = new Array();//创建空数组</span><br><span class="line">var arr2 = new Array(5);//创建length为5的数组，所有项都为undefined</span><br><span class="line">var arr3 = new Array(&quot;andy chen&quot;);//创建length为1，该值为andy chen的数组</span><br><span class="line">var arr4 = Array()；//省略new与不省略一样</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用对象字面量 <code>var arr = [1,2,3]</code></p>
+</li>
+</ol>
+<blockquote>
+<p>小技巧：每当在数组末尾添加一项后，其length会自动更新。故可以通过 arr[arr.length] = XXX ，来为数组末尾添加数据</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>数组最多可包含4294967295项</p>
+</blockquote>
+<p><strong>数组常用方法</strong></p>
+<ul>
+<li>检测方法：ES5 : isArray()</li>
+<li>转换方法: toLocaleString() , toString() , valueOf()<br>输出的时候，默认调用的是toString方法</li>
+<li>栈方法：pop() ， push()</li>
+<li>队列方法 ： shift() ， unshift()</li>
+<li>重排序方法：<ul>
+<li>reverse ： 反转</li>
+<li>sort ： 对数组排序</li>
+<li>sort 默认比较的是各个数组项的toString方法，所以 ‘5’会大于 ‘10’，所以一般会传递一个比较函数给sort。</li>
+</ul>
+</li>
+<li>操作方法 ：concat ， slice ， splice</li>
+<li>位置方法 : lastIndexOf  ,  indexOf</li>
+<li>迭代方法 ：every，filter，forEach，map，some</li>
+<li>归并方法： reduce ， reduceRight</li>
+</ul>
+<h4 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型:"></a>Date类型:</h4><ul>
+<li>Date.UTC()  返回表示UTC时间的毫秒数</li>
+<li>Date.parse() 返回表示相应日期的毫秒数</li>
+<li>Date类型与其他引用类型一样，重写了toString()， toLocalString() ， valueOf()方法,其中ValueOf返回日期的毫秒数，所以可以直接用 ＜ 或 &gt; 比较日期的大小</li>
+</ul>
+<blockquote>
+<p>+new Date() : 用+号可以将date类型转换成数值</p>
+</blockquote>
+<h4 id="RegExp-类型"><a href="#RegExp-类型" class="headerlink" title="RegExp 类型"></a>RegExp 类型</h4><p><strong>创建正则表达式：</strong></p>
+<ol>
+<li><code>var expression = / pattern / flags ;</code></li>
+<li><code>var re = new RegExp( pattern, flags );</code></li>
+</ol>
+<p><strong>正则表达式包含3个标志:</strong></p>
+<ul>
+<li>g ： 表示全局 ，表示搜索一整个字符串，而非匹配到第一个就停止</li>
+<li>i ： 不区分大小写</li>
+<li>m ： 表示多行模式，搜索一行后，会继续下一行</li>
+</ul>
+<blockquote>
+<p>正则表达式中的元字符必须转义: <code>（［｛＼＾＄｜）＊＋．］｝</code>这些元字符必须转义.<br>传递给RegExp中的 pattern 为字符串，由于字符串会对<code>\ 或 \n</code>，等进行转义。所以必须进行二次转义<br>例如： 向匹配 <code>[</code>，则表达式为<code>/\[/</code>，但是传给RegExp的字符串为 ： <code>&quot;\\[&quot;</code></p>
+</blockquote>
+<p><strong>RegExp 实例属性</strong></p>
+<ul>
+<li>global ：表示是否设置了g 标志</li>
+<li>ignoreCase ： 表示是否设置了 i 表示</li>
+<li>multiline ： 表示是否设置了m标志</li>
+<li>lastIndex ： 表示开始搜搜下一项匹配项的字符位置</li>
+<li>source ： 正则表达式的字符串表示</li>
+</ul>
+<p><strong>RegExp的实例方法：</strong></p>
+<ul>
+<li>exec 方法 :<br>接收一个参数，返回包含第一个匹配项信息的数组，没有匹配项则返回null<br>该返回匹配项信息为一个数组,额外还有两个属性：<ul>
+<li>index：表示匹配在字符串内容的位置</li>
+<li>input 属性： 应用到正则表达式的字符串内容</li>
+</ul>
+</li>
+<li>test 方法：<br>接受一个字符串参数，在模式与该参数匹配的情况下返回true.</li>
+<li>toString（） , toLocaleString（）: 都返回表达式的对象字面量。</li>
+</ul>
+<p><strong>RegExp 构造函数属性（即是静态属性） </strong></p>
+<ul>
+<li>input : 最近一次匹配的字符串 缩写： <code>$ _</code></li>
+<li>lastMatch ： 最近一次的匹配项    缩写： <code>$&amp;</code></li>
+<li>lastParen ： 最近一次匹配的捕获组   缩写： <code>$+</code></li>
+<li>leftContext ：input 中lastMatch之前的文本  缩写： $`</li>
+<li>multiline ：是否使用多行   缩写： <code>$*</code></li>
+<li>rightContent ：input 中lastMatch之前的文本  缩写： <code>$&amp;#39</code>;</li>
+<li><code>$1 , $2 ...$9</code> 表示匹配的捕获组</li>
+</ul>
+<p><strong>模式的局限性：</strong><br>ECMAScript的正则表达式功能还是比较完备的，但是仍然缺少某些语言所支持的高级特性。</p>
+<h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h4><p>函数是对象，函数名实际上是一个指向函数对象的指针，不会与某个函数绑定<br><strong>函数定义 ：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//函数声明语法定义</span><br><span class="line">funciton sum()&#123;   doSomething... &#125;</span><br><span class="line">//函数表达式定义</span><br><span class="line">var sum = funciton()&#123;   doSomething... &#125;</span><br><span class="line">//使用Function构造函数：</span><br><span class="line">var sum = new Function(param1,param2,&quot;doSomething&quot;);//doSomeThing为方法体</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<ul>
+<li>函数没有重载，在创建第二个同名函数的时候，会覆盖掉上一个</li>
+<li>函数声明提升：在代码开始执行之前，解析器就已经通过了一个函数声明提升的过程，读取并将函数声明添加到执行环境当中，所以，即使声明函数的代码在调用它的代码后面，js引擎也能把函数声明提升到顶部</li>
+</ul>
+</blockquote>
+<p><strong>函数内部属性：</strong></p>
+<ul>
+<li>arguments：一个类数组对象，包含传入函数中的所有参数，arguments.callee ，指向拥有arguments对象的函数</li>
+<li>this ：引用的是函数据以执行的环境对象，当在全局作用域中调用函数时，this指向window</li>
+<li>caller : 保存着调用当前函数的函数的引用，如果是全局调用，则为null。<br>使用方法：functionName.caller , 由于functionName 需要名字，也可以通过arguments.callee.caller</li>
+<li>在严格模式下，arguments.callee会导致错误，也不能为函数的caller属性赋值</li>
+</ul>
+<p><strong>函数属性和方法：</strong></p>
+<ul>
+<li>length : 函数希望接受的参数个数</li>
+<li>prototype : 保存所有实例方法的真正所在。</li>
+<li>apply： 在特定的作用域中运行函数，接受两个参数，一个是函数作用域，一个是参数数组</li>
+<li>call：在特定的作用域中运行函数（与apply作用相同），与apply不同的是，参数直接传递给函数<br>call和apply真正的用武之地是能够扩充函数的赖以运行的作用域 </li>
+<li>bind： 会创建一个函数的实例，其this值会被绑定到传给bind函数的值</li>
+</ul>
+<h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><p>为了便于操作基本类型值，es提供了3个特殊的引用类型：Boolean ， Number ， String<br>由于基本类型不是对象，所以逻辑上讲他们不应该有方法。但是我们可以调用许多方法，是因为后台其实帮我们做了一系列的事<br><strong>读取字符串时：</strong></p>
+<ul>
+<li>创建String类型的一个实例</li>
+<li>在实例上调用制定的方法</li>
+<li>销毁这个实例</li>
+</ul>
+<blockquote>
+<p>引用类型与基本包装类型的区别主要在于对象的声明生存期。使用new操作符创建的引用类型的实例，在执行流离开作用域之前一直保存在内存中。而自动创建的基本包装类型，则只存在于一行代码的执行瞬间，然后被立即销毁</p>
+</blockquote>
+<p><strong>Number：</strong></p>
+<ul>
+<li>toFixed ： 按照指定的小数位返回数值的字符串</li>
+<li>toExponential : 返回以指数表示法表示的数值的字符串形式</li>
+<li>toPrecision ： 返回固定大小格式，或返回指数格式</li>
+</ul>
+<p><strong>String ：</strong></p>
+<ul>
+<li>字符方法 <ul>
+<li>charAt : 返回给定位置的那个字符</li>
+<li>charCodeAt ： 返回给定位置的字符编码</li>
+</ul>
+</li>
+<li>字符串操作方法<ul>
+<li>concat： ：拼接字符串</li>
+<li>slice ( start , end )  : 返回一个子字符串。start 或 end 为负数时候，表示末尾往前</li>
+<li>substr( start , count)  : 返回一个子字符串。start为负数时候，表示从后往前，end为负数时，表示0</li>
+<li>substring( start , end )  : 返回一个子字符串。start为负数时候，表示0</li>
+</ul>
+</li>
+<li>字符串位置方法 ： indexOf, lastIndexOf</li>
+<li>trim方法 : 去除前后的空格</li>
+<li>字符串大小转换方法：toLowerCase() , toUpperCase(),  toLocaleLowerCase() toLocaleUpperCase()<br><code>在不知道自己的代码将在哪种语言环境下运行，还是使用针对地区的方法更稳妥一些.eg:toLocaleLowerCase()</code></li>
+<li>字符串模式匹配方法<ul>
+<li>match ：返回一个数组，第一项是与整个模式匹配的字符串，之后的每一项保存着与正则表达式中的捕获组匹配的字符串（本质上与调用ＲegExp 的 exec 方法相同）</li>
+<li>search ： 返回参数在字符串中第一次出现的位置</li>
+<li>replace ：将第二个参数的内容替换掉第一参数的内容。只会替换第一个子字符串，如果想替换所有，第二个参数提供一个正则表达式，并指定全局ｇ标志。第二个参数也可以是一个函数</li>
+<li>split : 指定分隔符将字符串分隔成多个字符串</li>
+<li>localeCompare方法：小于则返回负数，等于返回0，大于返回正数</li>
+<li>fromCharCode方法:接受1或多个字符编码，转换成字符串。与charCodeAt 是相反的操作</li>
+</ul>
+</li>
+</ul>
+<h4 id="单体内置对象"><a href="#单体内置对象" class="headerlink" title="单体内置对象"></a>单体内置对象</h4><p><strong>Global 对象:</strong></p>
+<ol>
+<li>URI 编码方法<ul>
+<li>encodeURI :主要用于整段URL，进行编码。不会对属于URI的字符进行编码，例如冒号，正斜杠，问号和井号</li>
+<li>encodeURIComponent ：会对它发现的任何非标准字符进行编码<br>解码分别是：decodeURI() ，decodeURIComponent()</li>
+</ul>
+</li>
+<li>eval 方法<br>eval 将接收到的参数当成实际的语句来解析，然后把执行结果插入到原位置</li>
+<li>Global 对象的属性<br>特殊值 <code>undefined，NaN，Infinity</code> 以及原生引用类型的构造函数。</li>
+<li>window 对象：<br>ECMAScript 虽然没有指出如何直接访问Global对象，但 web浏览器都是将这个全局对象作为window对象的一部分加以实现的，因此，在全局作用域中声明的变量和函数，都成为window对象的属性<br>另一种获得Global的方法是利用匿名自执行函数 ： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var global = function()&#123;</span><br><span class="line">       return this;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>Math对象</strong></p>
+<ul>
+<li>属性： PI , E , LN10 , SQRT2 …. </li>
+<li>方法：　ceil ， floor ， round ， min ， max ， random ，abs , log , sqrt …等数学运算的方法</li>
+</ul>
+<p>﻿</p>
+<hr>
+<blockquote>
+<p>关于作者：<br>AndyChen，前端开发，Hybrid App<br>联系方式：374664805@qq.com<br>博客：<a href="http://chen4342024.github.io/">http://chen4342024.github.io/</a></p>
+<p>本文为原创文章，因此转载请保留原出处<br>本文永久链接：<a href="http://chen4342024.github.io/2016/06/13/引用类型/">http://chen4342024.github.io/2016/06/13/引用类型/</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat.png" alt="andy chen WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.png" alt="andy chen Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/引用类型/" rel="tag">#引用类型</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/12/js高级技巧/" rel="next" title="js高级技巧">
+                <i class="fa fa-chevron-left"></i> js高级技巧
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/13/引用类型/"
+           data-title="引用类型" data-url="http://chen4342024.github.io/2016/06/13/引用类型/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="andy chen" />
+          <p class="site-author-name" itemprop="name">andy chen</p>
+          <p class="site-description motion-element" itemprop="description">常来常往</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chen4342024" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/" title="博客园" target="_blank">博客园</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://segmentfault.com/" title="SegmentFault" target="_blank">SegmentFault</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">1.</span> <span class="nav-text">引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-对象"><span class="nav-number">1.1.</span> <span class="nav-text">Object 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-对象-："><span class="nav-number">1.2.</span> <span class="nav-text">Array 对象 ：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Date类型"><span class="nav-number">1.3.</span> <span class="nav-text">Date类型:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RegExp-类型"><span class="nav-number">1.4.</span> <span class="nav-text">RegExp 类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function"><span class="nav-number">1.5.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本包装类型"><span class="nav-number">1.6.</span> <span class="nav-text">基本包装类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单体内置对象"><span class="nav-number">1.7.</span> <span class="nav-text">单体内置对象</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">andy chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chen4342024"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("GbubepdvHuXqGcxCcw0Jm98Y-gzGzoHsz", "gt394O4OM7fqLjX6CGcEWwOk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

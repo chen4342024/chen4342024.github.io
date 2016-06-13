@@ -4,8 +4,50 @@
 
     
   <url>
+    <loc>http://chen4342024.github.io/2016/06/13/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/</loc>
+    <lastmod>2016-06-13T15:57:38.590Z</lastmod>
+    <data>
+        <display>
+        <title>引用类型</title>
+        <pubTime>2016-06-13T15:50:07.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>引用类型</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript高级程序设计" url="http://chen4342024.github.io/categories/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/12/js%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2016-06-13T14:36:28.275Z</lastmod>
+    <data>
+        <display>
+        <title>js最佳实践</title>
+        <pubTime>2016-06-12T14:57:54.000Z</pubTime>
+        
+        <tag>优化 - 可维护性</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript高级程序设计" url="http://chen4342024.github.io/categories/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://chen4342024.github.io/2016/06/12/js%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2016-06-12T15:15:28.753Z</lastmod>
+    <lastmod>2016-06-13T14:20:15.957Z</lastmod>
     <data>
         <display>
         <title>js高级技巧</title>
@@ -30,28 +72,8 @@
 
     
   <url>
-    <loc>http://chen4342024.github.io/2016/06/12/js%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</loc>
-    <lastmod>2016-06-12T15:04:25.483Z</lastmod>
-    <data>
-        <display>
-        <title>js最佳实践</title>
-        <pubTime>2016-06-12T14:57:54.000Z</pubTime>
-        
-        <tag>优化 - 可维护性</tag>
-         
-         
-           
-             
-              <breadCrumb title="javascript高级程序设计" url="http://chen4342024.github.io/categories/javascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://chen4342024.github.io/2016/06/12/%E4%BD%BF%E7%94%A8Fiddler%E8%B0%83%E8%AF%95%E5%BE%AE%E4%BF%A1jssdk/</loc>
-    <lastmod>2016-06-12T14:37:59.081Z</lastmod>
+    <lastmod>2016-06-13T14:19:02.270Z</lastmod>
     <data>
         <display>
         <title>使用Fiddler调试微信jssdk</title>
@@ -71,10 +93,9 @@
     </url>
 
     
-    
   <url>
     <loc>http://chen4342024.github.io/2016/06/10/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2016-06-11T06:52:35.990Z</lastmod>
+    <lastmod>2016-06-13T14:18:45.647Z</lastmod>
     <data>
         <display>
         <title>变量、作用域和内存问题</title>
@@ -93,6 +114,7 @@
     </data>
     </url>
 
+    
     
     
     

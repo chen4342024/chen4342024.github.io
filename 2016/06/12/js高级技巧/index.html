@@ -98,7 +98,7 @@ js内置的类型检测并非完全可靠，typeof操作符难以判断某个值
 instanceof在多个frame的情况下，会出现问题。例如：var isArray = value instance of Array ;会由于存在多个window，而value与Array不属于同个window的情况而导致出错
 
 对于这样的问题，最好的解决方法是通过调用Object的t">
-<meta property="og:updated_time" content="2016-06-12T15:15:28.753Z">
+<meta property="og:updated_time" content="2016-06-13T14:20:15.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js高级技巧">
 <meta name="twitter:description" content="1 . 高级函数安全的类型检测
@@ -351,6 +351,7 @@ instanceof在多个frame的情况下，会出现问题。例如：var isArray = 
 <blockquote>
 <p>注意，这个技巧前提是Object.prototype.toString方法未被修改过</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="作用域安全的构造函数"><a href="#作用域安全的构造函数" class="headerlink" title="作用域安全的构造函数"></a>作用域安全的构造函数</h4><p>调用构造函数的时候，如果忘记写new的话，构造函数中对this的赋值，则可能会赋值到window上成为全局变量，导致其他错误。<br>可以在构造函数增加判断来避免这种错误,如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">    if(this instanceof Person)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return new Person(name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="惰性载入函数"><a href="#惰性载入函数" class="headerlink" title="惰性载入函数"></a>惰性载入函数</h4><p>在程序中 ，类似对浏览器的检测等，进行一次检测过后，只要在当前环境下，其检测结果都不会改变。所以，我们的函数中 if 语句只需要判断一次就可以了，而不需要每次都执行。<br>对这种情况的解决方案便称为惰性载入。<br>惰性载入表示函数执行的分支仅会发生一次。</p>
 <h6 id="惰性载入两种实现方法："><a href="#惰性载入两种实现方法：" class="headerlink" title="惰性载入两种实现方法："></a>惰性载入两种实现方法：</h6><ul>
@@ -463,6 +464,10 @@ instanceof在多个frame的情况下，会出现问题。例如：var isArray = 
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/06/13/引用类型/" rel="prev" title="引用类型">
+                引用类型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -533,7 +538,7 @@ instanceof在多个frame的情况下，会出现问题。例如：var isArray = 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -550,7 +555,7 @@ instanceof在多个frame的情况下，会出现问题。例如：var isArray = 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
