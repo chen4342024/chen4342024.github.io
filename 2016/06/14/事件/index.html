@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="优化 - 可维护性," />
+  <meta name="keywords" content="事件,js," />
 
 
 
@@ -84,58 +84,64 @@
 
 
 
-<meta name="description" content="js 最佳实践可维护性什么是可维护的代码
-可理解性：他人可以接手代码并理解它
-直观性  : 代码逻辑清晰
-可适应性 ： 代码以一种数据变化不要求重写的方法编写
-可扩展性  ：代码已考虑到未来允许对核心功能进行扩展
-可调试性　：　出错时，方便定位问题所在
+<meta name="description" content="事件事件流
+事件冒泡
+事件捕获
+DOM事件流DOM2级事件规定事件流分为三个阶段：
+事件捕获阶段
+处于目标阶段
+事件冒泡阶段
 
-代码约定可读性
-代码格式化
-适当添加注释
 
-函数与方法
-大段代码
-复杂算法
-Hack，对浏览器的一些hack">
+
+
+IE9、Opera、Firefox、Chrome和safari都支持DOM事件流；IEB及更早版本不支持
+
+事件处理程序HTML事件处理程序在HTML中指定事件缺点:
+
+存在时差问题，加载html的时候，js可能并没有加载完全
+作用域链在不同的浏览器可能会导致不同的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js最佳实践">
-<meta property="og:url" content="http://chen4342024.github.io/2016/06/12/js最佳实践/index.html">
+<meta property="og:title" content="事件">
+<meta property="og:url" content="http://chen4342024.github.io/2016/06/14/事件/index.html">
 <meta property="og:site_name" content="Andy_chen的博客">
-<meta property="og:description" content="js 最佳实践可维护性什么是可维护的代码
-可理解性：他人可以接手代码并理解它
-直观性  : 代码逻辑清晰
-可适应性 ： 代码以一种数据变化不要求重写的方法编写
-可扩展性  ：代码已考虑到未来允许对核心功能进行扩展
-可调试性　：　出错时，方便定位问题所在
+<meta property="og:description" content="事件事件流
+事件冒泡
+事件捕获
+DOM事件流DOM2级事件规定事件流分为三个阶段：
+事件捕获阶段
+处于目标阶段
+事件冒泡阶段
 
-代码约定可读性
-代码格式化
-适当添加注释
 
-函数与方法
-大段代码
-复杂算法
-Hack，对浏览器的一些hack">
-<meta property="og:updated_time" content="2016-06-13T14:36:28.275Z">
+
+
+IE9、Opera、Firefox、Chrome和safari都支持DOM事件流；IEB及更早版本不支持
+
+事件处理程序HTML事件处理程序在HTML中指定事件缺点:
+
+存在时差问题，加载html的时候，js可能并没有加载完全
+作用域链在不同的浏览器可能会导致不同的">
+<meta property="og:updated_time" content="2016-06-14T14:45:19.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js最佳实践">
-<meta name="twitter:description" content="js 最佳实践可维护性什么是可维护的代码
-可理解性：他人可以接手代码并理解它
-直观性  : 代码逻辑清晰
-可适应性 ： 代码以一种数据变化不要求重写的方法编写
-可扩展性  ：代码已考虑到未来允许对核心功能进行扩展
-可调试性　：　出错时，方便定位问题所在
+<meta name="twitter:title" content="事件">
+<meta name="twitter:description" content="事件事件流
+事件冒泡
+事件捕获
+DOM事件流DOM2级事件规定事件流分为三个阶段：
+事件捕获阶段
+处于目标阶段
+事件冒泡阶段
 
-代码约定可读性
-代码格式化
-适当添加注释
 
-函数与方法
-大段代码
-复杂算法
-Hack，对浏览器的一些hack">
+
+
+IE9、Opera、Firefox、Chrome和safari都支持DOM事件流；IEB及更早版本不支持
+
+事件处理程序HTML事件处理程序在HTML中指定事件缺点:
+
+存在时差问题，加载html的时候，js可能并没有加载完全
+作用域链在不同的浏览器可能会导致不同的">
 
 
 
@@ -156,9 +162,9 @@ Hack，对浏览器的一些hack">
 
 
 
-  <link rel="canonical" href="http://chen4342024.github.io/2016/06/12/js最佳实践/"/>
+  <link rel="canonical" href="http://chen4342024.github.io/2016/06/14/事件/"/>
 
-  <title> js最佳实践 | Andy_chen的博客 </title>
+  <title> 事件 | Andy_chen的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -298,7 +304,7 @@ Hack，对浏览器的一些hack">
             
             
               
-                js最佳实践
+                事件
               
             
           </h1>
@@ -310,8 +316,8 @@ Hack，对浏览器的一些hack">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-12T22:57:54+08:00" content="2016-06-12">
-              2016-06-12
+            <time itemprop="dateCreated" datetime="2016-06-14T22:41:40+08:00" content="2016-06-14">
+              2016-06-14
             </time>
           </span>
 
@@ -340,8 +346,8 @@ Hack，对浏览器的一些hack">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/12/js最佳实践/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/12/js最佳实践/" itemprop="commentsCount"></span>
+                <a href="/2016/06/14/事件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/事件/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -351,7 +357,7 @@ Hack，对浏览器的一些hack">
 
           
           
-             <span id="/2016/06/12/js最佳实践/" class="leancloud_visitors" data-flag-title="js最佳实践">
+             <span id="/2016/06/14/事件/" class="leancloud_visitors" data-flag-title="事件">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -373,67 +379,84 @@ Hack，对浏览器的一些hack">
       
 
       
-        <h2 id="js-最佳实践"><a href="#js-最佳实践" class="headerlink" title="js 最佳实践"></a>js 最佳实践</h2><h3 id="可维护性"><a href="#可维护性" class="headerlink" title="可维护性"></a>可维护性</h3><h4 id="什么是可维护的代码"><a href="#什么是可维护的代码" class="headerlink" title="什么是可维护的代码"></a>什么是可维护的代码</h4><ul>
-<li>可理解性：他人可以接手代码并理解它</li>
-<li>直观性  : 代码逻辑清晰</li>
-<li>可适应性 ： 代码以一种数据变化不要求重写的方法编写</li>
-<li>可扩展性  ：代码已考虑到未来允许对核心功能进行扩展</li>
-<li>可调试性　：　出错时，方便定位问题所在</li>
-</ul>
-<h4 id="代码约定"><a href="#代码约定" class="headerlink" title="代码约定"></a>代码约定</h4><h5 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h5><ul>
-<li>代码格式化</li>
-<li><p>适当添加注释</p>
-<ul>
-<li>函数与方法</li>
-<li>大段代码</li>
-<li>复杂算法</li>
-<li>Hack，对浏览器的一些hack</li>
-</ul>
-<a id="more"></a>
-<h5 id="变量与函数命名"><a href="#变量与函数命名" class="headerlink" title="变量与函数命名"></a>变量与函数命名</h5></li>
-<li>变量名应为名词</li>
-<li>函数名应为动词开始</li>
-<li>变量和函数应使用合乎逻辑的名字</li>
-</ul>
-<h5 id="变量类型透明"><a href="#变量类型透明" class="headerlink" title="变量类型透明"></a>变量类型透明</h5><p>由于js 中的变量是松散类型的，很容易就忘记变量所应包含的数据类型。<br>解决方案有三种：</p>
-<ol>
-<li>初始化时候，初始化一个值，暗示它将来如何使用</li>
-<li>命名前添加字符 ， 例如加 o 表示对象。缺点是使代码不直观</li>
-<li>每个变量使用类型注释。 </li>
+        <h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><h4 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h4><ul>
+<li>事件冒泡</li>
+<li>事件捕获</li>
+<li>DOM事件流<br>DOM2级事件规定事件流分为三个阶段：<ol>
+<li>事件捕获阶段</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段</li>
 </ol>
-<p>以上三种方法，不知何种才是好一点的做法。</p>
-<h4 id="松散耦合"><a href="#松散耦合" class="headerlink" title="松散耦合"></a>松散耦合</h4><ul>
-<li>解耦 HTML / javascript<br>HTML呈现应尽可能与javascript分离。更改行为只需要在js中进行，更改标记则只在html文件中。</li>
-<li>解耦CSS / javascript<br>尽量不在js中更改css，如element.style.color=”red”;而应该改为用class</li>
-<li>解耦应用逻辑 / 事件处理程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//事件处理程序</span><br><span class="line">function handlerClick(event)&#123;</span><br><span class="line">    var target = event.target;</span><br><span class="line">    var value = target.value;</span><br><span class="line">    dosomething... //应用逻辑</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>可更改为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//事件处理程序</span><br><span class="line">function handlerClick(event)&#123;</span><br><span class="line">    var target = event.target;</span><br><span class="line">    var value = target.value;</span><br><span class="line">    xxx();</span><br><span class="line">&#125;</span><br><span class="line">//应用逻辑</span><br><span class="line">function xxx()&#123;</span><br><span class="line">    dosomething ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样解耦应用逻辑与事件处理程序有几个好处，首先，让你可以更容易更改触发特定过程的事件，例如原先由鼠标点击触发，可以很方便改为用按键触发，其次，方便进行单元测试.<br>解耦应用逻辑 / 事件处理程序原则：</p>
 <blockquote>
+<p>IE9、Opera、Firefox、Chrome和safari都支持DOM事件流；IEB及更早版本不支持</p>
+</blockquote>
+<h4 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h4><p><strong>HTML事件处理程序</strong><br>在HTML中指定事件缺点:</p>
+<ol>
+<li>存在时差问题，加载html的时候，js可能并没有加载完全</li>
+<li>作用域链在不同的浏览器可能会导致不同的结果</li>
+<li>使HTML和javascript紧密耦合，一旦修改，需同时修改js以及html</li>
+</ol>
+<p><strong>DOM0级事件处理：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxx.onclick  = function()&#123; dosomething() &#125;; //添加事件监听</span><br><span class="line">xxx.onclick = null;//删除事件监听</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><strong>DOM2级事件处理：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxx.addEventListener()  //添加事件监听</span><br><span class="line">xxx.removeEventListener()  //删除事件监听</span><br></pre></td></tr></table></figure></p>
+<p>两个函数都接受三个参数，分别是要处理的事件名、事件处理程序的函数, 处理阶段（true:捕获阶段，false：冒泡阶段）</p>
+<blockquote>
+<p>注意 :</p>
 <ul>
-<li>勿将event对象传给其他方法，只传来自event对象中所需的数据</li>
-<li>任何可以在应用层面的动作都应该可以在不执行事件的情况下进行</li>
-<li>任何事件处理程序都应该处理事件，然后将处理转交给应用逻辑</li>
+<li>通过addEventListener()添加的事件处理程序只能使用removeEventListener来移除；</li>
+<li>移除时传入的参数与添加处理程序时使用的参数相同。这也意味着通过addEventListener()添加的匿名函数将无法移除。如果需要保留上下文，建议用bind方法</li>
+<li>使用Jquery的on方法绑定的事件则可以通过namespace来解绑</li>
 </ul>
 </blockquote>
-<h4 id="编程实践"><a href="#编程实践" class="headerlink" title="编程实践"></a>编程实践</h4><ol>
-<li>尊重对象所有权<br>永远不要修改不是由你所有的对象</li>
-<li>避免全局量<br>只声明单一的全局变量，作为一个容器，其中定义了其他对象。这种方式叫做命名空间。<br>命名空间有助于确保代码可以在同一个页面上与其他代码以无害的方式一起工作</li>
-<li>避免与null比较<br>如果看到了与null比较的代码，首先需要确定的是，是否该if语句仅仅判断null就行。大多数情况下，我们是想要判断是否是确定的类型。<br>null比较越少，我们越容易确定代码的目的，以消除不必要的错误</li>
-<li>使用常量<br>关键在于将数据和使用它的逻辑进行分离。以下情况应使用常量：<ul>
-<li>多处用到的值都应该抽取到一个常量。这在修改的时候也不会容易修改漏掉</li>
-<li>用户界面字符串：用于显示给用户看的字符串，都应该抽取出来方便国际化</li>
-<li>URLs ： 在web应用中，资源位置容易变更，所以推荐使用常量</li>
-<li>任何可能会更改的值</li>
+<p> 使用例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var element = document.getElementById(&quot;element&quot;);</span><br><span class="line">var user = &#123;</span><br><span class="line">    firstname: &apos;Bob&apos;,</span><br><span class="line">    greeting: function()&#123;</span><br><span class="line">       alert(&apos;My name is &apos; + this.firstname);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">element.addEventListener(&apos;click&apos;, user.greeting)；//通过这种方式，并不能正确的打印出Bob,而会打印undefined</span><br><span class="line"></span><br><span class="line">var userGreeting = user.greeting.bind(user);</span><br><span class="line">element.addEventListener(&apos;click&apos;, user.greeting);//通过这种方式，能正确的打印出Bob</span><br></pre></td></tr></table></figure></p>
+<p><strong>IE中的事件处理</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxx.attachEvent()   //添加</span><br><span class="line">xxx.detachEvent()   //删除</span><br></pre></td></tr></table></figure></p>
+<p>IE中与DOM事件处理的区别就在于</p>
+<ul>
+<li>通过attachEvent只能添加到冒泡阶段。（IE8及以下）</li>
+<li>第一个参数事件名前需要添加on,如click事件第一参数为‘onclick’</li>
+<li>执行顺序与绑定顺序相反</li>
+<li>事件处理函数中，this为全局，即为window</li>
+</ul>
+<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象:"></a>事件对象:</h4><p>在触发DOM上的事件对象时，就会产生一个事件对象，事件对象中包含着一系列关于这个事件信息。</p>
+<p><strong>事件类型：</strong></p>
+<ul>
+<li>UI事件</li>
+<li>焦点事件</li>
+<li>鼠标事件</li>
+<li>滚轮事件</li>
+<li>文本事件</li>
+<li>键盘事件</li>
+<li>合成事件</li>
+<li>变动事件</li>
+<li>HTML5事件</li>
+<li>设备事件</li>
+<li>触摸与手势事件</li>
+</ul>
+<h4 id="内存与性能："><a href="#内存与性能：" class="headerlink" title="内存与性能："></a>内存与性能：</h4><p>使用事件的时候，要多考虑内存与性能方面的问题</p>
+<ol>
+<li>限制事件数量</li>
+<li>使用事件委托，优点如下：<ul>
+<li>可以在页面生命周期任何时点上为它添加事件处理程序（即可为未来节点添加回调）</li>
+<li>所需Dom引用更少，所花时间更少,页面占用内存少</li>
 </ul>
 </li>
+<li>移除过时不用的事件处理程序<br>注意：在事件处理程序中删除按钮也能阻止事件冒泡。因为目标元素是事件冒泡的前提</li>
 </ol>
-<h3 id="性能（待补充）"><a href="#性能（待补充）" class="headerlink" title="性能（待补充）"></a>性能（待补充）</h3><p>﻿</p>
+<h4 id="模拟事件："><a href="#模拟事件：" class="headerlink" title="模拟事件："></a>模拟事件：</h4><p>可以通过document对象上的createEvent（）方法创建事件，来模拟事件<br>可以模拟以下事件：</p>
+<ul>
+<li>鼠标事件</li>
+<li>键盘事件</li>
+<li>其他事件</li>
+<li>自定义事件</li>
+</ul>
+<h4 id="写在最后："><a href="#写在最后：" class="headerlink" title="写在最后："></a>写在最后：</h4><p>事件这一块的内容相当的多，文章中每一个知识点都有很多需要注意的东西。限于篇幅，这篇文章写的也比较简陋。之后有时间的话，会根据每个小知识点再各写一篇文章来仔细讲述。</p>
+<p>﻿</p>
 <hr>
 <blockquote>
 <p>关于作者：<br>AndyChen，前端开发，Hybrid App<br>联系方式：374664805@qq.com<br>博客：<a href="http://chen4342024.github.io/">http://chen4342024.github.io/</a></p>
-<p>本文为原创文章，因此转载请保留原出处<br>本文永久链接：<a href="http://chen4342024.github.io/2016/06/12/js最佳实践/">http://chen4342024.github.io/2016/06/12/js最佳实践/</a></p>
+<p>本文为原创文章，因此转载请保留原出处<br>本文永久链接：<a href="http://chen4342024.github.io/2016/06/14/事件/">http://chen4342024.github.io/2016/06/14/事件/</a></p>
 </blockquote>
 
       
@@ -477,7 +500,9 @@ Hack，对浏览器的一些hack">
       
         <div class="post-tags">
           
-            <a href="/tags/优化-可维护性/" rel="tag">#优化 - 可维护性</a>
+            <a href="/tags/事件/" rel="tag">#事件</a>
+          
+            <a href="/tags/js/" rel="tag">#js</a>
           
         </div>
       
@@ -486,17 +511,13 @@ Hack，对浏览器的一些hack">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/12/使用Fiddler调试微信jssdk/" rel="next" title="使用Fiddler调试微信jssdk">
-                <i class="fa fa-chevron-left"></i> 使用Fiddler调试微信jssdk
+              <a href="/2016/06/13/引用类型/" rel="next" title="引用类型">
+                <i class="fa fa-chevron-left"></i> 引用类型
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/12/js高级技巧/" rel="prev" title="js高级技巧">
-                js高级技巧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -522,8 +543,8 @@ Hack，对浏览器的一些hack">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/12/js最佳实践/"
-           data-title="js最佳实践" data-url="http://chen4342024.github.io/2016/06/12/js最佳实践/">
+      <div class="ds-thread" data-thread-key="2016/06/14/事件/"
+           data-title="事件" data-url="http://chen4342024.github.io/2016/06/14/事件/">
       </div>
     
   </div>
@@ -643,7 +664,7 @@ Hack，对浏览器的一些hack">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-最佳实践"><span class="nav-number">1.</span> <span class="nav-text">js 最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可维护性"><span class="nav-number">1.1.</span> <span class="nav-text">可维护性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是可维护的代码"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是可维护的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码约定"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码约定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可读性"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">可读性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量与函数命名"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">变量与函数命名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量类型透明"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">变量类型透明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#松散耦合"><span class="nav-number">1.1.3.</span> <span class="nav-text">松散耦合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编程实践"><span class="nav-number">1.1.4.</span> <span class="nav-text">编程实践</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能（待补充）"><span class="nav-number">1.2.</span> <span class="nav-text">性能（待补充）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">1.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件流"><span class="nav-number">1.1.</span> <span class="nav-text">事件流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件处理程序"><span class="nav-number">1.2.</span> <span class="nav-text">事件处理程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件对象"><span class="nav-number">1.3.</span> <span class="nav-text">事件对象:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存与性能："><span class="nav-number">1.4.</span> <span class="nav-text">内存与性能：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟事件："><span class="nav-number">1.5.</span> <span class="nav-text">模拟事件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写在最后："><span class="nav-number">1.6.</span> <span class="nav-text">写在最后：</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
