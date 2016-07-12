@@ -258,6 +258,200 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/12/使用canvas绘图/" itemprop="url">
+                  使用canvas绘图
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-12T22:29:37+08:00" content="2016-07-12">
+              2016-07-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript高级程序设计/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript高级程序设计</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/12/使用canvas绘图/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/12/使用canvas绘图/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/12/使用canvas绘图/" class="leancloud_visitors" data-flag-title="使用canvas绘图">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="使用canvas绘图"><a href="#使用canvas绘图" class="headerlink" title="使用canvas绘图"></a>使用canvas绘图</h2><p>HTML5添加的最受欢迎的功能就是<code>&lt;canvas&gt;</code>元素，这个元素负责在页面中设定一个区域，然后就可以通过javascript动态的在这个区域中绘制图形</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ol>
+<li>使用canvas元素，必须指定width，height属性</li>
+<li>开始标签和结束标签之间的内容，是后备信息。如果浏览器不支持canvas，则显示该信息<br><code>&lt;canvas id=&quot;drawing&quot; width=&quot;200&quot; height=&quot;200&quot;&gt; drawing something &lt;/canvas&gt;</code></li>
+<li>要在画布（canvas）上绘图，需获取2D上下文。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var drawing = document.getElementById(&quot;drawing&quot;);</span><br><span class="line">if(drawing.getContext)&#123; //必须先判断，因为有些浏览器并没有getContext方法</span><br><span class="line">  var context = drawing.getContext(&quot;2d&quot;);</span><br><span class="line">  //更多操作</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="2D上下文"><a href="#2D上下文" class="headerlink" title="2D上下文"></a>2D上下文</h3><h4 id="原点坐标"><a href="#原点坐标" class="headerlink" title="原点坐标"></a>原点坐标</h4><p>坐标原点位于canvas的左上角，原点为（0,0），越往右x值越大，越往下y值越大</p>
+<h4 id="填充和描边"><a href="#填充和描边" class="headerlink" title="填充和描边"></a>填充和描边</h4><p>2D上下文绘图操作基本是两种：</p>
+<ol>
+<li>填充：用指定样式填充图形，操作结果取决于 fillStyle</li>
+<li>描边：只在图形边缘划线 ，操作结果取决于 strokeStyle<blockquote>
+<p>将 <code>context.fillStyle</code> 或 <code>context.strokeStyle</code> 设为某个值后，之后所有的描边和填充操作都会使用对应的值，直到重新设置这两个值</p>
+</blockquote>
+</li>
+</ol>
+<p>如何使用将与下面绘制矩形一同介绍</p>
+<h4 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h4><p>矩形是唯一一种可以在2D上下文中绘制的形状，包含三个方法：<code>fillRect()</code> 、 <code>strokeRect()</code> 、 <code>clearRect()</code><br>接受参数都一样是4个参数，分别是：x坐标，y坐标，宽度，高度<br>下面是使用的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var drawing = document.getElementById(&quot;drawing&quot;);</span><br><span class="line">if (drawing.getContext) &#123;</span><br><span class="line">    var context = drawing.getContext(&quot;2d&quot;);</span><br><span class="line">    context.strokeStyle = &quot;#ff0000&quot;;</span><br><span class="line">    context.strokeRect(10, 10, 50, 50); //绘制空心矩形（描边）</span><br><span class="line">    context.fillStyle = &quot;#0000ff&quot;;</span><br><span class="line">    context.fillRect(70, 10, 50, 50);//绘制实心矩形（填充）</span><br><span class="line">    context.clearRect(80, 20, 20, 20);//清空某个区域</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行结果：<br><img src="/uploads/canvas_1.png" alt="执行结果"><br>第二个矩形中间的空白部分就是被清空了的</p>
+<h4 id="绘制路径"><a href="#绘制路径" class="headerlink" title="绘制路径"></a>绘制路径</h4><p>2D上下文支持很多在画布上绘制路径的方法，通过路径可以创造出复杂的图形<br>绘制路径的操作流程为：</p>
+<ol>
+<li>必须调用 <code>beginPath()</code>, 表示开始绘制新路径</li>
+<li>调用绘制路径的方法。</li>
+<li>如果想绘制一条连接到路径起点的线条，调用 <code>closePath()</code></li>
+<li>对路径进行填充 <code>fill()</code> 或 描边 <code>stroke()</code> 、或者创建一个剪切区域 <code>clip()</code></li>
+</ol>
+<h5 id="接下来让我们来绘制一个钟表"><a href="#接下来让我们来绘制一个钟表" class="headerlink" title="接下来让我们来绘制一个钟表"></a>接下来让我们来绘制一个钟表</h5><p>首先了解下待会会使用到的绘制路径的方法：</p>
+<ul>
+<li><code>arc(x , y , radius , startAngle , endAngle , counterclockwise)</code>: 以圆心绘制一条弧线，半径为radius，起始角度和结束角度</li>
+<li><code>lineTo(x,y)</code>从上一点（也就是游标当前点）开始绘制一条直线，到 ( x,y ) 为止</li>
+<li><code>moveTo(x,y)</code>将游标移动到 ( x , y ), 不画线<br>除了这些之外，绘制路径还有其他一些方法：</li>
+<li><code>arcTo , bezierCurveTo , quadraticCurveTo ,rect</code>,这些就请自行参与官方文档了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var drawing = document.getElementById(&quot;drawing&quot;);</span><br><span class="line">if (drawing.getContext) &#123;</span><br><span class="line">    var context = drawing.getContext(&quot;2d&quot;);</span><br><span class="line">    //1.开始路径</span><br><span class="line">    context.beginPath();</span><br><span class="line">    //2.开始绘制路径</span><br><span class="line">    //绘制外圆</span><br><span class="line">    context.arc(100, 100, 99, 0, 2 * Math.PI, false);</span><br><span class="line">    //绘制内圆</span><br><span class="line">    context.moveTo(194, 100);//先把游标移动到要内圆起点</span><br><span class="line">    context.arc(100, 100, 94, 0, 2 * Math.PI, false);</span><br><span class="line">    //绘制分针</span><br><span class="line">    context.moveTo(100, 100);</span><br><span class="line">    context.lineTo(100, 15);</span><br><span class="line">    //绘制时针</span><br><span class="line">    context.moveTo(100, 100);</span><br><span class="line">    context.lineTo(35, 100);</span><br><span class="line">    //3.绘制路径完，进行描边</span><br><span class="line">    context.stroke();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>执行结果：<br><img src="/uploads/canvas_2.png" alt=""></p>
+<blockquote>
+<p>注意：arc()中的参数度数是弧度而不是角度，1 弧度 = 180° / π，1° = π /180 ，所以，旋转360°，需要旋转 2π 弧度  </p>
+</blockquote>
+<h4 id="绘制文本"><a href="#绘制文本" class="headerlink" title="绘制文本"></a>绘制文本</h4><p>2D绘图上下文也提供了绘制文本的方法： <code>fillText()</code> 和 <code>strokeText()</code><br>都有4个参数：要绘制的文本字符串，x坐标 ,y坐标，最大像素宽度（可选）<br>在使用绘制文本方法之前，应该先设置下列3个属性：<code>font，textAlign，textBaseLine</code><br>让我们为上一个例子的钟表添加一个12的数字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">context.font = &quot;bold 14px Arial&quot;;</span><br><span class="line">context.textAlign = &quot;center&quot;;</span><br><span class="line">context.textBaseline = &quot;middle&quot;;</span><br><span class="line">context.fillText(&quot;12&quot;, 100, 20);</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：<br><img src="/uploads/canvas_3.png" alt=""></p>
+<h4 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h4><p>通过上下文的变换，可以把处理后的图像绘制到画布上。<br>可通过如下方法来修改变换矩阵：<br><code>rotate(angle)</code>:围绕原点旋转图像angle弧度。<br><code>scale（scaleX，scaleY）</code>：缩放图像<br><code>translate(x,y)</code>将坐标原点移到 x , y<br><code>transform(m1_1,m1_2,m2_1,m2_2,dx,dy)</code>:直接修改变换矩阵<br>变换可能很简单。对于绘制表针来说，如果把原点变换到表盘中心，在绘制表针，就容易得多<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var drawing = document.getElementById(&quot;drawing&quot;);</span><br><span class="line">    if (drawing.getContext) &#123;</span><br><span class="line">        var context = drawing.getContext(&quot;2d&quot;);</span><br><span class="line">        //1.开始路径</span><br><span class="line">        context.beginPath();</span><br><span class="line">        //2.开始绘制路径</span><br><span class="line">        //绘制外圆</span><br><span class="line">        context.arc(100, 100, 99, 0, 2 * Math.PI, false);</span><br><span class="line">        //绘制内圆</span><br><span class="line">        context.moveTo(194, 100);//先把游标移动到要内圆起点</span><br><span class="line">        context.arc(100, 100, 94, 0, 2 * Math.PI, false);</span><br><span class="line">		context.translate(100, 100);//主要是这里将坐标原点移到(0,0)，所以接下来的计算都相对于圆心来计算</span><br><span class="line">        //绘制分针</span><br><span class="line">        context.moveTo(0, 0);</span><br><span class="line">        context.lineTo(0, -85);</span><br><span class="line">        //绘制时针</span><br><span class="line">        context.moveTo(0, 0);</span><br><span class="line">        context.lineTo(-65, 0);</span><br><span class="line">        //3.绘制路径完，进行描边</span><br><span class="line">        context.stroke();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果与上面一模一样，但是计算就要简单得多。<br>对于上下文的属性与变换，可以使用<code>save()</code>来保存，当时的设置会被保存进一个栈结构。<br>当想使用之前保存的设置，则调用<code>restore()</code>方法</p>
+<h4 id="绘制图像"><a href="#绘制图像" class="headerlink" title="绘制图像"></a>绘制图像</h4><p>2D上下文内置了对图像的支持。</p>
+<ul>
+<li>drawImage()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.drawImage(img, 0, 0, 200, 200, 0, 0, 300, 300);//参数分别是 ： 要绘制的图像、原图像的x、y、宽度、高度、目标图像的x、y、宽度、高度</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意：图像需要预加载，或者在img.onload中执行drawImage才有效</p>
+</blockquote>
+<ul>
+<li>toDataURL()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var drawing = document.getElementById(&quot;drawing&quot;);</span><br><span class="line">if (drawing.getContext) &#123;</span><br><span class="line">    var context = drawing.getContext(&quot;2d&quot;);</span><br><span class="line">&#125;</span><br><span class="line">var src = drawing.toDataURL();//获得canvas中的图像数据</span><br><span class="line">var canvasImg = new Image();</span><br><span class="line">canvasImg.src = src;</span><br><span class="line">document.body.appendChild(canvasImg);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="使用图像数据"><a href="#使用图像数据" class="headerlink" title="使用图像数据"></a>使用图像数据</h4><p>2D上下文有个长处，可以通过getImageData()取得原始图像数据.<br>这个方法非常有用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var imageData = context.getImageData(10,5,50,50);//(10,5)左上角，大小为50*50的区域的图像数据</span><br></pre></td></tr></table></figure></p>
+<p>让我做一个灰阶过滤器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var drawing = document.getElementById(&quot;drawing&quot;);</span><br><span class="line">if (drawing.getContext) &#123;</span><br><span class="line">    var context = drawing.getContext(&quot;2d&quot;);</span><br><span class="line">	var img = document.images[0];</span><br><span class="line">	context.drawImage(img, 0, 0);</span><br><span class="line">	var imageData = context.getImageData(0, 0, img.width, img.height);</span><br><span class="line">	var data = imageData.data;</span><br><span class="line">	var red, green, blue, alpha, average;</span><br><span class="line">	//对图像数据的red green blue 进行处理</span><br><span class="line">	for (var i = 0, len = data.length; i &lt; len; i += 4) &#123;</span><br><span class="line">	    red = data[i];</span><br><span class="line">	    green = data[i + 1];</span><br><span class="line">	    blue = data[i + 2];</span><br><span class="line">	    alpha = data[i + 3];</span><br><span class="line">	    average = Math.floor((red + green + blue) / 3);</span><br><span class="line">	    data[i] = red + 100;</span><br><span class="line">	    data[i + 1] = green + 100;</span><br><span class="line">	    data[i + 2] = blue + 100;</span><br><span class="line">	&#125;</span><br><span class="line">	imageData.data = data;</span><br><span class="line">	context.putImageData(imageData, 0, img.height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果：分别是处理前和处理后。<br><img src="/uploads/canvas_4.png" alt=""></p>
+<p>图像数据除了做灰阶过滤器，还有很多其他功能，例如 锐化、亮度之类的，有兴趣的可以到这里了解下：<br><a href="http://www.html5rocks.com/en/tutorials/canvas/imagefilters/" target="_blank" rel="external">http://www.html5rocks.com/en/tutorials/canvas/imagefilters/</a> ，请自备梯子</p>
+<h4 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h4><p>2d上下文还有其他的以下功能： 阴影、渐变、 模式、 合成，这些就不细讲了！</p>
+<p>: )</p>
+<p>﻿</p>
+<hr>
+<blockquote>
+<p>关于作者：<br>AndyChen，前端开发，Hybrid App<br>联系方式：374664805@qq.com<br>博客：<a href="http://chen4342024.github.io/">http://chen4342024.github.io/</a></p>
+<p>本文为原创文章，因此转载请保留原出处<br>本文永久链接：<a href="http://chen4342024.github.io/2016/07/12/使用canvas绘图/">http://chen4342024.github.io/2016/07/12/使用canvas绘图/</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/29/客户端检测/" itemprop="url">
                   客户端检测
                 </a>
@@ -1413,7 +1607,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1430,7 +1624,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
