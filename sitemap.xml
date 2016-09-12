@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://chen4342024.github.io/about/index.html</loc>
+    
+    <lastmod>2016-09-12T14:33:50.797Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://chen4342024.github.io/2016/07/12/%E4%BD%BF%E7%94%A8canvas%E7%BB%98%E5%9B%BE/</loc>
     
     <lastmod>2016-07-12T15:06:54.147Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://chen4342024.github.io/categories/index.html</loc>
     
     <lastmod>2016-06-11T06:53:35.254Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/about/index.html</loc>
-    
-    <lastmod>2016-06-11T06:48:20.552Z</lastmod>
     
   </url>
   
