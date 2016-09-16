@@ -258,6 +258,139 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/16/underscore源码解读-restArgs/" itemprop="url">
+                  underscore源码解读 ==> restArgs
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-16T20:07:58+08:00" content="2016-09-16">
+              2016-09-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/underscore源码解读/" itemprop="url" rel="index">
+                    <span itemprop="name">underscore源码解读</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/16/underscore源码解读-restArgs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/16/underscore源码解读-restArgs/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/16/underscore源码解读-restArgs/" class="leancloud_visitors" data-flag-title="underscore源码解读 ==> restArgs">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="underscore源码分析"><a href="#underscore源码分析" class="headerlink" title="underscore源码分析"></a>underscore源码分析</h3><h4 id="如何实现不定参数"><a href="#如何实现不定参数" class="headerlink" title="如何实现不定参数"></a>如何实现不定参数</h4><p>使用过underscore.js 的人，肯定都使用过以下几个方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_.without(array, *values) //返回一个删除所有values值后的array副本</span><br><span class="line">_.union(*arrays) //返回传入的arrays（数组）并集</span><br><span class="line">_.difference(array, *others)//返回来自array参数数组，并且不存在于other 数组</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>这些方法都有一个共同点，就是可以传入不定数量的参数，例如，我想删除掉array中的value1，value2，可以这样使用,<code>_.without(array,value1,value2);</code></p>
+<h5 id="那么，这个需要怎样才能做到呢？"><a href="#那么，这个需要怎样才能做到呢？" class="headerlink" title="那么，这个需要怎样才能做到呢？"></a>那么，这个需要怎样才能做到呢？</h5><p>我们知道，js中function里面，有一个arguments参数，它是一个类数组，里面包含着调用这个方法的所有参数，所以可以这样处理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">_.without = function()&#123;</span><br><span class="line">   if(arguments.length &gt; 0)&#123;</span><br><span class="line">      var array = arguments[0];</span><br><span class="line">      var values = [];</span><br><span class="line">	  for(var i = 1 ; i &lt; arguments.length; i++)&#123;</span><br><span class="line">	     values.push(arguments[i])</span><br><span class="line">	  &#125;</span><br><span class="line">	  //这样得到了array，和values数组，便可以进一步处理了</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/16/underscore源码解读-restArgs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/12/使用canvas绘图/" itemprop="url">
                   使用canvas绘图
                 </a>
@@ -1550,7 +1683,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1558,7 +1691,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1567,7 +1700,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="优化 - 可维护性," />
+  <meta name="keywords" content="js,underscore," />
 
 
 
@@ -84,58 +84,16 @@
 
 
 
-<meta name="description" content="js 最佳实践可维护性什么是可维护的代码
-可理解性：他人可以接手代码并理解它
-直观性  : 代码逻辑清晰
-可适应性 ： 代码以一种数据变化不要求重写的方法编写
-可扩展性  ：代码已考虑到未来允许对核心功能进行扩展
-可调试性　：　出错时，方便定位问题所在
-
-代码约定可读性
-代码格式化
-适当添加注释
-
-函数与方法
-大段代码
-复杂算法
-Hack，对浏览器的一些hack">
+<meta name="description" content="underscore源码分析如何实现不定参数使用过underscore.js 的人，肯定都使用过以下几个方法：1234_.without(array, *values) //返回一个删除所有values值后的array副本_.union(*arrays) //返回传入的arrays（数组）并集_.difference(array, *others)//返回来自array参数数组，并且不存在于oth">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js最佳实践">
-<meta property="og:url" content="http://chen4342024.github.io/2016/06/12/js最佳实践/index.html">
+<meta property="og:title" content="underscore源码解读 ==> restArgs">
+<meta property="og:url" content="http://chen4342024.github.io/2016/09/16/underscore源码解读-restArgs/index.html">
 <meta property="og:site_name" content="Andy_chen的博客">
-<meta property="og:description" content="js 最佳实践可维护性什么是可维护的代码
-可理解性：他人可以接手代码并理解它
-直观性  : 代码逻辑清晰
-可适应性 ： 代码以一种数据变化不要求重写的方法编写
-可扩展性  ：代码已考虑到未来允许对核心功能进行扩展
-可调试性　：　出错时，方便定位问题所在
-
-代码约定可读性
-代码格式化
-适当添加注释
-
-函数与方法
-大段代码
-复杂算法
-Hack，对浏览器的一些hack">
-<meta property="og:updated_time" content="2016-06-13T14:36:28.275Z">
+<meta property="og:description" content="underscore源码分析如何实现不定参数使用过underscore.js 的人，肯定都使用过以下几个方法：1234_.without(array, *values) //返回一个删除所有values值后的array副本_.union(*arrays) //返回传入的arrays（数组）并集_.difference(array, *others)//返回来自array参数数组，并且不存在于oth">
+<meta property="og:updated_time" content="2016-09-16T12:12:02.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js最佳实践">
-<meta name="twitter:description" content="js 最佳实践可维护性什么是可维护的代码
-可理解性：他人可以接手代码并理解它
-直观性  : 代码逻辑清晰
-可适应性 ： 代码以一种数据变化不要求重写的方法编写
-可扩展性  ：代码已考虑到未来允许对核心功能进行扩展
-可调试性　：　出错时，方便定位问题所在
-
-代码约定可读性
-代码格式化
-适当添加注释
-
-函数与方法
-大段代码
-复杂算法
-Hack，对浏览器的一些hack">
+<meta name="twitter:title" content="underscore源码解读 ==> restArgs">
+<meta name="twitter:description" content="underscore源码分析如何实现不定参数使用过underscore.js 的人，肯定都使用过以下几个方法：1234_.without(array, *values) //返回一个删除所有values值后的array副本_.union(*arrays) //返回传入的arrays（数组）并集_.difference(array, *others)//返回来自array参数数组，并且不存在于oth">
 
 
 
@@ -156,9 +114,9 @@ Hack，对浏览器的一些hack">
 
 
 
-  <link rel="canonical" href="http://chen4342024.github.io/2016/06/12/js最佳实践/"/>
+  <link rel="canonical" href="http://chen4342024.github.io/2016/09/16/underscore源码解读-restArgs/"/>
 
-  <title> js最佳实践 | Andy_chen的博客 </title>
+  <title> underscore源码解读 ==> restArgs | Andy_chen的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -298,7 +256,7 @@ Hack，对浏览器的一些hack">
             
             
               
-                js最佳实践
+                underscore源码解读 ==> restArgs
               
             
           </h1>
@@ -310,8 +268,8 @@ Hack，对浏览器的一些hack">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-12T22:57:54+08:00" content="2016-06-12">
-              2016-06-12
+            <time itemprop="dateCreated" datetime="2016-09-16T20:07:58+08:00" content="2016-09-16">
+              2016-09-16
             </time>
           </span>
 
@@ -324,8 +282,8 @@ Hack，对浏览器的一些hack">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/javascript高级程序设计/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript高级程序设计</span>
+                  <a href="/categories/underscore源码解读/" itemprop="url" rel="index">
+                    <span itemprop="name">underscore源码解读</span>
                   </a>
                 </span>
 
@@ -340,8 +298,8 @@ Hack，对浏览器的一些hack">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/12/js最佳实践/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/12/js最佳实践/" itemprop="commentsCount"></span>
+                <a href="/2016/09/16/underscore源码解读-restArgs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/16/underscore源码解读-restArgs/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -351,7 +309,7 @@ Hack，对浏览器的一些hack">
 
           
           
-             <span id="/2016/06/12/js最佳实践/" class="leancloud_visitors" data-flag-title="js最佳实践">
+             <span id="/2016/09/16/underscore源码解读-restArgs/" class="leancloud_visitors" data-flag-title="underscore源码解读 ==> restArgs">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -373,67 +331,20 @@ Hack，对浏览器的一些hack">
       
 
       
-        <h2 id="js-最佳实践"><a href="#js-最佳实践" class="headerlink" title="js 最佳实践"></a>js 最佳实践</h2><h3 id="可维护性"><a href="#可维护性" class="headerlink" title="可维护性"></a>可维护性</h3><h4 id="什么是可维护的代码"><a href="#什么是可维护的代码" class="headerlink" title="什么是可维护的代码"></a>什么是可维护的代码</h4><ul>
-<li>可理解性：他人可以接手代码并理解它</li>
-<li>直观性  : 代码逻辑清晰</li>
-<li>可适应性 ： 代码以一种数据变化不要求重写的方法编写</li>
-<li>可扩展性  ：代码已考虑到未来允许对核心功能进行扩展</li>
-<li>可调试性　：　出错时，方便定位问题所在</li>
-</ul>
-<h4 id="代码约定"><a href="#代码约定" class="headerlink" title="代码约定"></a>代码约定</h4><h5 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h5><ul>
-<li>代码格式化</li>
-<li><p>适当添加注释</p>
-<ul>
-<li>函数与方法</li>
-<li>大段代码</li>
-<li>复杂算法</li>
-<li>Hack，对浏览器的一些hack</li>
-</ul>
+        <h3 id="underscore源码分析"><a href="#underscore源码分析" class="headerlink" title="underscore源码分析"></a>underscore源码分析</h3><h4 id="如何实现不定参数"><a href="#如何实现不定参数" class="headerlink" title="如何实现不定参数"></a>如何实现不定参数</h4><p>使用过underscore.js 的人，肯定都使用过以下几个方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_.without(array, *values) //返回一个删除所有values值后的array副本</span><br><span class="line">_.union(*arrays) //返回传入的arrays（数组）并集</span><br><span class="line">_.difference(array, *others)//返回来自array参数数组，并且不存在于other 数组</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>这些方法都有一个共同点，就是可以传入不定数量的参数，例如，我想删除掉array中的value1，value2，可以这样使用,<code>_.without(array,value1,value2);</code></p>
+<h5 id="那么，这个需要怎样才能做到呢？"><a href="#那么，这个需要怎样才能做到呢？" class="headerlink" title="那么，这个需要怎样才能做到呢？"></a>那么，这个需要怎样才能做到呢？</h5><p>我们知道，js中function里面，有一个arguments参数，它是一个类数组，里面包含着调用这个方法的所有参数，所以可以这样处理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">_.without = function()&#123;</span><br><span class="line">   if(arguments.length &gt; 0)&#123;</span><br><span class="line">      var array = arguments[0];</span><br><span class="line">      var values = [];</span><br><span class="line">	  for(var i = 1 ; i &lt; arguments.length; i++)&#123;</span><br><span class="line">	     values.push(arguments[i])</span><br><span class="line">	  &#125;</span><br><span class="line">	  //这样得到了array，和values数组，便可以进一步处理了</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h5 id="变量与函数命名"><a href="#变量与函数命名" class="headerlink" title="变量与函数命名"></a>变量与函数命名</h5></li>
-<li>变量名应为名词</li>
-<li>函数名应为动词开始</li>
-<li>变量和函数应使用合乎逻辑的名字</li>
-</ul>
-<h5 id="变量类型透明"><a href="#变量类型透明" class="headerlink" title="变量类型透明"></a>变量类型透明</h5><p>由于js 中的变量是松散类型的，很容易就忘记变量所应包含的数据类型。<br>解决方案有三种：</p>
-<ol>
-<li>初始化时候，初始化一个值，暗示它将来如何使用</li>
-<li>命名前添加字符 ， 例如加 o 表示对象。缺点是使代码不直观</li>
-<li>每个变量使用类型注释。 </li>
-</ol>
-<p>以上三种方法，不知何种才是好一点的做法。</p>
-<h4 id="松散耦合"><a href="#松散耦合" class="headerlink" title="松散耦合"></a>松散耦合</h4><ul>
-<li>解耦 HTML / javascript<br>HTML呈现应尽可能与javascript分离。更改行为只需要在js中进行，更改标记则只在html文件中。</li>
-<li>解耦CSS / javascript<br>尽量不在js中更改css，如element.style.color=”red”;而应该改为用class</li>
-<li>解耦应用逻辑 / 事件处理程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//事件处理程序</span><br><span class="line">function handlerClick(event)&#123;</span><br><span class="line">    var target = event.target;</span><br><span class="line">    var value = target.value;</span><br><span class="line">    dosomething... //应用逻辑</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>可更改为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//事件处理程序</span><br><span class="line">function handlerClick(event)&#123;</span><br><span class="line">    var target = event.target;</span><br><span class="line">    var value = target.value;</span><br><span class="line">    xxx();</span><br><span class="line">&#125;</span><br><span class="line">//应用逻辑</span><br><span class="line">function xxx()&#123;</span><br><span class="line">    dosomething ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样解耦应用逻辑与事件处理程序有几个好处，首先，让你可以更容易更改触发特定过程的事件，例如原先由鼠标点击触发，可以很方便改为用按键触发，其次，方便进行单元测试.<br>解耦应用逻辑 / 事件处理程序原则：</p>
-<blockquote>
-<ul>
-<li>勿将event对象传给其他方法，只传来自event对象中所需的数据</li>
-<li>任何可以在应用层面的动作都应该可以在不执行事件的情况下进行</li>
-<li>任何事件处理程序都应该处理事件，然后将处理转交给应用逻辑</li>
-</ul>
-</blockquote>
-<h4 id="编程实践"><a href="#编程实践" class="headerlink" title="编程实践"></a>编程实践</h4><ol>
-<li>尊重对象所有权<br>永远不要修改不是由你所有的对象</li>
-<li>避免全局量<br>只声明单一的全局变量，作为一个容器，其中定义了其他对象。这种方式叫做命名空间。<br>命名空间有助于确保代码可以在同一个页面上与其他代码以无害的方式一起工作</li>
-<li>避免与null比较<br>如果看到了与null比较的代码，首先需要确定的是，是否该if语句仅仅判断null就行。大多数情况下，我们是想要判断是否是确定的类型。<br>null比较越少，我们越容易确定代码的目的，以消除不必要的错误</li>
-<li>使用常量<br>关键在于将数据和使用它的逻辑进行分离。以下情况应使用常量：<ul>
-<li>多处用到的值都应该抽取到一个常量。这在修改的时候也不会容易修改漏掉</li>
-<li>用户界面字符串：用于显示给用户看的字符串，都应该抽取出来方便国际化</li>
-<li>URLs ： 在web应用中，资源位置容易变更，所以推荐使用常量</li>
-<li>任何可能会更改的值</li>
-</ul>
-</li>
-</ol>
-<h3 id="性能（待补充）"><a href="#性能（待补充）" class="headerlink" title="性能（待补充）"></a>性能（待补充）</h3><p>﻿</p>
+<p>上面只是打个比方，<strong>想要支持不定参数，我们要做的就是把固定参数和动态参数从arguments中分离出来。</strong><br>但是，我们这样写的话，需要在每个支持不定参数的函数里，都copy这样一段代码，这样实在不是很优美。所以需要封装成一个通用的函数。<br>我们直接看看underscore是封装的好了。</p>
+<h4 id="restArgs源码"><a href="#restArgs源码" class="headerlink" title="restArgs源码"></a>restArgs源码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">var restArgs = function (func, startIndex) &#123;</span><br><span class="line">    //startIndex ,表示几个参数之后便是动态参数</span><br><span class="line">    startIndex = startIndex == null ? func.length - 1 : +startIndex;</span><br><span class="line">    return function () &#123;</span><br><span class="line">        var length = Math.max(arguments.length - startIndex, 0);</span><br><span class="line">		//处理arguments，将动态参数保存进rest数组</span><br><span class="line">        var rest = Array(length);</span><br><span class="line">        for (var index = 0; index &lt; length; index++) &#123;</span><br><span class="line">            rest[index] = arguments[index + startIndex];</span><br><span class="line">        &#125;</span><br><span class="line">		//处理0,1,2三种情况，这里要单独处理，是想优先使用call，因为，call的性能比apply要好一点</span><br><span class="line">        switch (startIndex) &#123;</span><br><span class="line">            case 0:</span><br><span class="line">                return func.call(this, rest);</span><br><span class="line">            case 1:</span><br><span class="line">                return func.call(this, arguments[0], rest);</span><br><span class="line">            case 2:</span><br><span class="line">                return func.call(this, arguments[0], arguments[1], rest);</span><br><span class="line">        &#125;</span><br><span class="line">		//如果startIndex不是0,1,2三种情况，则使用apply调用方法，将args作为参数，args将为数组[固定参数 ,rest];</span><br><span class="line">        var args = Array(startIndex + 1);</span><br><span class="line">        for (index = 0; index &lt; startIndex; index++) &#123;</span><br><span class="line">            args[index] = arguments[index];</span><br><span class="line">        &#125;</span><br><span class="line">        args[startIndex] = rest;</span><br><span class="line">        return func.apply(this, args);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">//这里without主要的逻辑处理方法，作为参数，传给restArgs，在restArgs中处理完参数后，使用call或apply调用逻辑处理方法，这时候接受到参数otherArrays，已经是一个数组了，包含了之前的动态参数。</span><br><span class="line">_.without = restArgs(function (array, otherArrays) &#123;</span><br><span class="line">    //处理without具体事件</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>underscore.js中利用js高级函数的特性，巧妙的实现了动态参数，如果要使某函数支持不定参数，只需要将该函数作为参数，传入restArgs中即可,例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function addByArray(values)&#123;</span><br><span class="line">   var sum = 0;</span><br><span class="line">   for (var i = 0 ; i &lt; values.length; i++) &#123;</span><br><span class="line">      sum += values[i];</span><br><span class="line">   &#125;</span><br><span class="line">   return sum;</span><br><span class="line">&#125;</span><br><span class="line">var add = restArgs(addByArray);</span><br><span class="line">//调用：</span><br><span class="line">addByArray([2,5,3,6]);//16</span><br><span class="line">add(2,5,3,6) //16</span><br></pre></td></tr></table></figure></p>
+<h4 id="ES6-不定参数"><a href="#ES6-不定参数" class="headerlink" title="ES6 不定参数"></a>ES6 不定参数</h4><p>ES6引入了rest参数，（形式为”…变量名”），用于获取多余参数，这样就不需要使用arguments对象来实现了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function add(...values) &#123;</span><br><span class="line">   let sum = 0;</span><br><span class="line">   for (var val of values) &#123;</span><br><span class="line">      sum += val;</span><br><span class="line">   &#125;</span><br><span class="line">   return sum;</span><br><span class="line">&#125;</span><br><span class="line">add(2, 5, 3) // 10</span><br></pre></td></tr></table></figure></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>在underscore中，restArgs只是为了支持不定参数。实际使用中，也许我们都是直接使用ES6，或用babel将ES6转成ES5来支持不定参数，不过，能了解下是如何实现的，对我们来说，想必也是极好的。：）</p>
+<p>﻿</p>
 <hr>
 <blockquote>
 <p>关于作者：<br>AndyChen，前端开发，Hybrid App<br>联系方式：374664805@qq.com<br>博客：<a href="http://chen4342024.github.io/">http://chen4342024.github.io/</a></p>
-<p>本文为原创文章，因此转载请保留原出处<br>本文永久链接：<a href="http://chen4342024.github.io/2016/06/12/js最佳实践/">http://chen4342024.github.io/2016/06/12/js最佳实践/</a></p>
+<p>本文为原创文章，因此转载请保留原出处<br>本文永久链接：<a href="http://chen4342024.github.io/2016/09/16/underscore源码解读-restArgs/">http://chen4342024.github.io/2016/09/16/underscore源码解读-restArgs/</a></p>
 </blockquote>
 
       
@@ -477,7 +388,9 @@ Hack，对浏览器的一些hack">
       
         <div class="post-tags">
           
-            <a href="/tags/优化-可维护性/" rel="tag">#优化 - 可维护性</a>
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/underscore/" rel="tag">#underscore</a>
           
         </div>
       
@@ -486,17 +399,13 @@ Hack，对浏览器的一些hack">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/12/使用Fiddler调试微信jssdk/" rel="next" title="使用Fiddler调试微信jssdk">
-                <i class="fa fa-chevron-left"></i> 使用Fiddler调试微信jssdk
+              <a href="/2016/07/12/使用canvas绘图/" rel="next" title="使用canvas绘图">
+                <i class="fa fa-chevron-left"></i> 使用canvas绘图
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/12/js高级技巧/" rel="prev" title="js高级技巧">
-                js高级技巧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -522,8 +431,8 @@ Hack，对浏览器的一些hack">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/12/js最佳实践/"
-           data-title="js最佳实践" data-url="http://chen4342024.github.io/2016/06/12/js最佳实践/">
+      <div class="ds-thread" data-thread-key="2016/09/16/underscore源码解读-restArgs/"
+           data-title="underscore源码解读 ==> restArgs" data-url="http://chen4342024.github.io/2016/09/16/underscore源码解读-restArgs/">
       </div>
     
   </div>
@@ -643,7 +552,7 @@ Hack，对浏览器的一些hack">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-最佳实践"><span class="nav-number">1.</span> <span class="nav-text">js 最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可维护性"><span class="nav-number">1.1.</span> <span class="nav-text">可维护性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是可维护的代码"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是可维护的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码约定"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码约定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可读性"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">可读性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量与函数命名"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">变量与函数命名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量类型透明"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">变量类型透明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#松散耦合"><span class="nav-number">1.1.3.</span> <span class="nav-text">松散耦合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编程实践"><span class="nav-number">1.1.4.</span> <span class="nav-text">编程实践</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能（待补充）"><span class="nav-number">1.2.</span> <span class="nav-text">性能（待补充）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#underscore源码分析"><span class="nav-number">1.</span> <span class="nav-text">underscore源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何实现不定参数"><span class="nav-number">1.1.</span> <span class="nav-text">如何实现不定参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#那么，这个需要怎样才能做到呢？"><span class="nav-number">1.1.1.</span> <span class="nav-text">那么，这个需要怎样才能做到呢？</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#restArgs源码"><span class="nav-number">1.2.</span> <span class="nav-text">restArgs源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-不定参数"><span class="nav-number">1.3.</span> <span class="nav-text">ES6 不定参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -3,6 +3,28 @@
 
 
     
+  <url>
+    <loc>http://chen4342024.github.io/2016/09/16/underscore%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-restArgs/</loc>
+    <lastmod>2016-09-16T12:12:02.824Z</lastmod>
+    <data>
+        <display>
+        <title>underscore源码解读 ==> restArgs</title>
+        <pubTime>2016-09-16T12:07:58.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>underscore</tag>
+         
+         
+           
+             
+              <breadCrumb title="underscore源码解读" url="http://chen4342024.github.io/categories/underscore%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://chen4342024.github.io/2016/07/12/%E4%BD%BF%E7%94%A8canvas%E7%BB%98%E5%9B%BE/</loc>
@@ -82,9 +104,9 @@
         <title>事件</title>
         <pubTime>2016-06-14T14:41:40.000Z</pubTime>
         
-        <tag>事件</tag>
-         
         <tag>js</tag>
+         
+        <tag>事件</tag>
          
          
            
