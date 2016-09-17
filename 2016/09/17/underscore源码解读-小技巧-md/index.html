@@ -1,0 +1,877 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,underscore," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="underscore源码分析使用js小技巧在阅读underscore的过程中，发现了它的一些小技巧，对我们平时的编程很有用。在这里向大家介绍一二
+1.  void 0 代替 underfined首先，看源码：123_.isUndefined = function (obj) &amp;#123;    return obj === void 0;&amp;#125;;
+这里为啥要用 obj === void 0,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="underscore源码解读 ==> 小技巧">
+<meta property="og:url" content="http://chen4342024.github.io/2016/09/17/underscore源码解读-小技巧-md/index.html">
+<meta property="og:site_name" content="Andy_chen的博客">
+<meta property="og:description" content="underscore源码分析使用js小技巧在阅读underscore的过程中，发现了它的一些小技巧，对我们平时的编程很有用。在这里向大家介绍一二
+1.  void 0 代替 underfined首先，看源码：123_.isUndefined = function (obj) &amp;#123;    return obj === void 0;&amp;#125;;
+这里为啥要用 obj === void 0,">
+<meta property="og:updated_time" content="2016-09-17T14:19:27.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="underscore源码解读 ==> 小技巧">
+<meta name="twitter:description" content="underscore源码分析使用js小技巧在阅读underscore的过程中，发现了它的一些小技巧，对我们平时的编程很有用。在这里向大家介绍一二
+1.  void 0 代替 underfined首先，看源码：123_.isUndefined = function (obj) &amp;#123;    return obj === void 0;&amp;#125;;
+这里为啥要用 obj === void 0,">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://chen4342024.github.io/2016/09/17/underscore源码解读-小技巧-md/"/>
+
+  <title> underscore源码解读 ==> 小技巧 | Andy_chen的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Andy_chen的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                underscore源码解读 ==> 小技巧
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T22:18:04+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/underscore源码解读/" itemprop="url" rel="index">
+                    <span itemprop="name">underscore源码解读</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/17/underscore源码解读-小技巧-md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/17/underscore源码解读-小技巧-md/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/17/underscore源码解读-小技巧-md/" class="leancloud_visitors" data-flag-title="underscore源码解读 ==> 小技巧">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="underscore源码分析"><a href="#underscore源码分析" class="headerlink" title="underscore源码分析"></a>underscore源码分析</h3><h4 id="使用js小技巧"><a href="#使用js小技巧" class="headerlink" title="使用js小技巧"></a>使用js小技巧</h4><p>在阅读underscore的过程中，发现了它的一些小技巧，对我们平时的编程很有用。在这里向大家介绍一二</p>
+<h5 id="1-void-0-代替-underfined"><a href="#1-void-0-代替-underfined" class="headerlink" title="1.  void 0 代替 underfined"></a>1.  void 0 代替 underfined</h5><p>首先，看源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.isUndefined = function (obj) &#123;</span><br><span class="line">    return obj === void 0;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这里为啥要用 <code>obj === void 0</code>, 而不是 <code>obj === undefined</code> 呢？<br>因为，在 js 中，undefined并不是类似关键字（js关键字有function,return …），所以，理论上是可以更改的。<br>事实上，在IE8上也的确是可以被更改的,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var  undefined  =  1;</span><br><span class="line">alert(undefined); // 1 -- IE8, undefined --- chrome</span><br></pre></td></tr></table></figure></p>
+<p>而在chrome或高版本的IE中，并不能更改全局的undefined。但是，局部的undefined仍然可以被改变。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">   var  undefined  =  1;</span><br><span class="line">   alert(undefined); // 1 -- chrome</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p>所以，undefined并不十分可靠，所以才需要<code>void 0</code><br><code>void</code>是js的保留字，所以不可被更改。在MDN上定义是：</p>
+<blockquote>
+<p>The void operator evaluates the given expression and then returns undefined.<br>翻译：void操作符会对void后面的表达式进行运算，然后返回undefined</p>
+</blockquote>
+<p>所以，使用<code>void</code>会一直返回undefined，所以，可以用<code>void 0</code>替代<code>undefined</code>.<br><a id="more"></a></p>
+<h5 id="2-Array-prototype-slice-call-array-可用来复制一个数组，或将类数组转换为数组"><a href="#2-Array-prototype-slice-call-array-可用来复制一个数组，或将类数组转换为数组" class="headerlink" title="2. Array.prototype.slice.call(array); 可用来复制一个数组，或将类数组转换为数组"></a>2. Array.prototype.slice.call(array); 可用来复制一个数组，或将类数组转换为数组</h5><p>在js中，如果我们想复制一个数组，要如何复制呢？也许你会这样做：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function copy(array)&#123;</span><br><span class="line">   var copyArray = [];</span><br><span class="line">   for(var i = 0 , len = array.length; i &lt; len ; i++)&#123;</span><br><span class="line">      copyArray.push(array[i])</span><br><span class="line">   &#125;</span><br><span class="line">   return copyArray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其实，我们可以利用数组的slice和concat方法返回新的数组这个特性，来实现复制数组的功能；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var newArray = Array.prototype.slice.call(array);</span><br><span class="line">var newArray2 = Array.prototype.concat.call(array);</span><br></pre></td></tr></table></figure></p>
+<p>而且，性能方面，slice以及concat比单纯使用for循环还要更加高效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var array = _.range(10000000);//_.range，是undescore一个方法，用于生成一个从0到10000000的数组</span><br><span class="line">console.time(&quot;for copy push&quot;);</span><br><span class="line">var copyArray1 = [];</span><br><span class="line">for (var i = 0,length = array.length; i &lt; length; i++) &#123;</span><br><span class="line">    copyArray1.push(array[i]);</span><br><span class="line">&#125;</span><br><span class="line">console.timeEnd(&quot;for copy push&quot;);</span><br><span class="line"></span><br><span class="line">console.time(&quot;slice&quot;);</span><br><span class="line">var copyArray2 = Array.prototype.slice.call(array);</span><br><span class="line">console.timeEnd(&quot;slice&quot;);</span><br><span class="line"></span><br><span class="line">console.time(&quot;concat&quot;);</span><br><span class="line">var copyArray3 = Array.prototype.concat.call(array);</span><br><span class="line">console.timeEnd(&quot;concat&quot;);</span><br><span class="line">//结果</span><br><span class="line">//for copy push: 379.315ms</span><br><span class="line">//slice: 109.300ms</span><br><span class="line">//concat: 92.852ms</span><br></pre></td></tr></table></figure></p>
+<p>另外，也是通过<code>slice</code>,<code>call</code>将类数组转换为数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function test()&#123;</span><br><span class="line">   console.log(Array.prototype.slice.call(arguments));</span><br><span class="line">&#125;</span><br><span class="line">test(1,2,3); //输出[1, 2, 3]</span><br></pre></td></tr></table></figure></p>
+<h5 id="3-使用Array-length-value代替push添加元素"><a href="#3-使用Array-length-value代替push添加元素" class="headerlink" title="3. 使用Array[length]=value代替push添加元素"></a>3. 使用Array[length]=value代替push添加元素</h5><p>首先看源码 <code>_.values()</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_.values = function (obj) &#123;</span><br><span class="line">    var keys = _.keys(obj);</span><br><span class="line">    var length = keys.length;</span><br><span class="line">    var values = Array(length);//等同于new Array(length)</span><br><span class="line">    for (var i = 0; i &lt; length; i++) &#123;</span><br><span class="line">        values[i] = (obj[keys[i]]);</span><br><span class="line">    &#125;</span><br><span class="line">    return values;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>一开始看这种写法，并不习惯，我们大多数人可能更习惯这样写（使用push）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_.values = function (obj) &#123;</span><br><span class="line">    var keys = _.keys(obj);</span><br><span class="line">    var length = keys.length;</span><br><span class="line">    var values = []; //</span><br><span class="line">    for (var i = 0; i &lt; length; i++) &#123;</span><br><span class="line">        values.push(obj[keys[i]]); //使用push</span><br><span class="line">    &#125;</span><br><span class="line">    return values;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>实际测试中，第一种写法会比第二种更快。<br>关键在于，我们事先知道要填充的数组values的长度，然后预先生成一个对应长度的数组，之后只需要给对应的位置赋值。而第二种在push的时候，除了给对应位置赋值，还需要改变values数组的length。<br>所以，建议在已知长度的情况下，使用第一种，而不知道长度的情况下，使用第二种。</p>
+<h5 id="4-适当的使用-return-function"><a href="#4-适当的使用-return-function" class="headerlink" title="4. 适当的使用 return function"></a>4. 适当的使用 return function</h5><p>当我们编写两个功能非常相近的函数时，例如，实现复制一个数组的功能，分别是正序和倒序，我们可能会这样子实现（这里只是为了举例子，复制数组推荐第二点提到的使用<code>slice</code>或<code>concat</code>）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function copyArray(array, dir) &#123;</span><br><span class="line">    var copyArray = [];</span><br><span class="line">    var i = dir &gt; 0 ? 0 : array.length - 1;</span><br><span class="line"></span><br><span class="line">    for (; i &gt;= 0 &amp;&amp; i &lt; array.length; i += dir) &#123;</span><br><span class="line">        copyArray.push(array[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return copyArray;</span><br><span class="line">&#125;</span><br><span class="line">var copyDesc = function (array)&#123;</span><br><span class="line">  return copyArray(array,1)</span><br><span class="line">&#125;</span><br><span class="line">var copyAsce = function (array)&#123;</span><br><span class="line">  return copyArray(array,-1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样子实现会有什么问题呢？<br>其实对<code>copyDesc</code>，<code>copyAsce</code>,来说，只有dir是不同的而已，但是，这种方式实现，却需要将array也作为参数传递给copyArray。而 <code>copyDesc</code>,<code>copyAsce</code>其实只是一个转发的作用而已。我们可以继续优化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function copyArray(dir) &#123;</span><br><span class="line">   return function(array)&#123;</span><br><span class="line">     var copyArray = [];</span><br><span class="line">     var i = dir &gt; 0 ? 0 : array.length - 1;</span><br><span class="line">     for (; i &gt;= 0 &amp;&amp; i &lt; array.length; i += dir) &#123;</span><br><span class="line">        copyArray.push(array[i]);</span><br><span class="line">     &#125;</span><br><span class="line">     return copyArray;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">var copyDesc = copyArray(1);</span><br><span class="line">var copyAsce = copyArray(-1);</span><br></pre></td></tr></table></figure></p>
+<p>我觉得 return function 这种写法比较优雅一点，你觉得呢？</p>
+<h5 id="5-类型判断，使用Object-prototype-toString-来判断"><a href="#5-类型判断，使用Object-prototype-toString-来判断" class="headerlink" title="5. 类型判断，使用Object.prototype.toString()来判断"></a>5. 类型判断，使用Object.prototype.toString()来判断</h5><p>这里只举两个例子，<code>isString</code>,<code>isArray</code>,其他的例如 <code>isArguments</code> ， <code>isFunction</code> , 由于有些浏览器兼容问题需要特殊处理，这里就不细说了。<br>而像<code>isNull</code>，<code>isUndefined</code>，这些比较简单的，这里也不细说了：）<br>我们知道：<br><code>typeof</code> 可能的返回值有：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Undefined</td>
+<td><code>&quot;undefined&quot;</code></td>
+</tr>
+<tr>
+<td>Null</td>
+<td><code>&quot;object&quot;</code></td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>&quot;boolean&quot;</code></td>
+</tr>
+<tr>
+<td>Number</td>
+<td><code>&quot;number&quot;</code></td>
+</tr>
+<tr>
+<td>String</td>
+<td><code>&quot;string&quot;</code></td>
+</tr>
+<tr>
+<td>Symbol(ES6新增)</td>
+<td><code>&quot;symbol&quot;</code></td>
+</tr>
+<tr>
+<td>宿主对象(由JS环境提供)</td>
+<td><em>Implementation-dependent</em></td>
+</tr>
+<tr>
+<td>函数对象( [[Call]])</td>
+<td><code>&quot;function&quot;</code></td>
+</tr>
+<tr>
+<td>任何其他对象</td>
+<td><code>&quot;object&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<p>但是，typeof 却有下面这种问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typeof &quot;test&quot; ---&gt; &quot;string&quot;</span><br><span class="line">typeof new String(&quot;test&quot;) ---&gt; &quot;object&quot;</span><br><span class="line">typeof 123 -----&gt; &quot;number&quot;</span><br><span class="line">typeof new Number(123) ---&gt;&quot;object&quot;</span><br></pre></td></tr></table></figure></p>
+<p>跟我们的期望不太一样，Object.prototype.toString 则没有这问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(&quot;test&quot;) //&quot;[object String]&quot;</span><br><span class="line">Object.prototype.toString.call(new String(&quot;test&quot;))//&quot;[object String]&quot;</span><br><span class="line">Object.prototype.toString.call(123)//&quot;[object Number]&quot;</span><br><span class="line">Object.prototype.toString.call(new Number(123))//&quot;[object Number]&quot;</span><br></pre></td></tr></table></figure></p>
+<p>所以，我们可以通过<code>Object.prototype.toString</code>来进行类型判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function isNumber(obj)&#123;</span><br><span class="line">   return Object.prototype.toString.call(obj) === &apos;[object Number]&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function isString(obj)&#123;</span><br><span class="line">   return Object.prototype.toString.call(obj) === &apos;[object String]&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>﻿</p>
+<hr>
+<blockquote>
+<p>关于作者：<br>AndyChen，前端开发，Hybrid App<br>联系方式：374664805@qq.com<br>博客：<a href="http://chen4342024.github.io/">http://chen4342024.github.io/</a></p>
+<p>本文为原创文章，因此转载请保留原出处<br>本文永久链接：<a href="http://chen4342024.github.io/2016/09/17/underscore源码解读-小技巧-md/">http://chen4342024.github.io/2016/09/17/underscore源码解读-小技巧-md/</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat.png" alt="andy chen WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.png" alt="andy chen Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/underscore/" rel="tag">#underscore</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/16/underscore源码解读-restArgs/" rel="next" title="underscore源码解读 ==> restArgs">
+                <i class="fa fa-chevron-left"></i> underscore源码解读 ==> restArgs
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/17/underscore源码解读-小技巧-md/"
+           data-title="underscore源码解读 ==> 小技巧" data-url="http://chen4342024.github.io/2016/09/17/underscore源码解读-小技巧-md/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="andy chen" />
+          <p class="site-author-name" itemprop="name">andy chen</p>
+          <p class="site-description motion-element" itemprop="description">常来常往</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chen4342024" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/" title="博客园" target="_blank">博客园</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://segmentfault.com/" title="SegmentFault" target="_blank">SegmentFault</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#underscore源码分析"><span class="nav-number">1.</span> <span class="nav-text">underscore源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用js小技巧"><span class="nav-number">1.1.</span> <span class="nav-text">使用js小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-void-0-代替-underfined"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.  void 0 代替 underfined</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Array-prototype-slice-call-array-可用来复制一个数组，或将类数组转换为数组"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. Array.prototype.slice.call(array); 可用来复制一个数组，或将类数组转换为数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-使用Array-length-value代替push添加元素"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 使用Array[length]=value代替push添加元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-适当的使用-return-function"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 适当的使用 return function</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-类型判断，使用Object-prototype-toString-来判断"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 类型判断，使用Object.prototype.toString()来判断</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">andy chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chen4342024"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("GbubepdvHuXqGcxCcw0Jm98Y-gzGzoHsz", "gt394O4OM7fqLjX6CGcEWwOk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
