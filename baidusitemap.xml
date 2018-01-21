@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://chen4342024.github.io/2018/01/22/promise%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2018-01-21T16:18:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>promise简单实现</title>
+        <pubTime>2018-01-21T16:06:38.000Z</pubTime>
+        
+        <tag>promise</tag>
+         
+        <tag>es6</tag>
+         
+         
+           
+             
+              <breadCrumb title="javascript" url="http://chen4342024.github.io/categories/javascript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://chen4342024.github.io/2017/12/21/REM%E5%AE%9E%E7%8E%B0%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94/</loc>
     <lastmod>2018-01-21T15:55:15.000Z</lastmod>
     <data>
@@ -170,9 +192,9 @@
         <title>事件</title>
         <pubTime>2016-06-14T14:41:40.000Z</pubTime>
         
-        <tag>js</tag>
-         
         <tag>事件</tag>
+         
+        <tag>js</tag>
          
          
            
