@@ -2,114 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://chen4342024.github.io/2016/09/17/underscore%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-%E5%B0%8F%E6%8A%80%E5%B7%A7-md/</loc>
+    <loc>http://chen4342024.github.io/2017/12/21/REM%E5%AE%9E%E7%8E%B0%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94/</loc>
     
-    <lastmod>2016-09-17T14:19:27.332Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/2016/09/16/underscore%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-restArgs/</loc>
-    
-    <lastmod>2016-09-16T12:15:39.034Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/about/index.html</loc>
-    
-    <lastmod>2016-09-12T14:41:24.672Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/2016/07/12/%E4%BD%BF%E7%94%A8canvas%E7%BB%98%E5%9B%BE/</loc>
-    
-    <lastmod>2016-07-12T15:06:54.147Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/2016/06/29/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B/</loc>
-    
-    <lastmod>2016-06-28T23:34:17.794Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/2016/06/16/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</loc>
-    
-    <lastmod>2016-06-15T23:52:51.037Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/2016/06/14/%E4%BA%8B%E4%BB%B6/</loc>
-    
-    <lastmod>2016-06-14T14:45:19.894Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/2016/06/13/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/</loc>
-    
-    <lastmod>2016-06-13T15:57:38.590Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/2016/06/12/js%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</loc>
-    
-    <lastmod>2016-06-13T14:36:28.275Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/2016/06/12/js%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/</loc>
-    
-    <lastmod>2016-06-13T14:20:15.957Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chen4342024.github.io/2016/06/12/%E4%BD%BF%E7%94%A8Fiddler%E8%B0%83%E8%AF%95%E5%BE%AE%E4%BF%A1jssdk/</loc>
-    
-    <lastmod>2016-06-13T14:19:02.270Z</lastmod>
+    <lastmod>2018-01-21T15:55:15.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://chen4342024.github.io/2016/06/10/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98/</loc>
     
-    <lastmod>2016-06-13T14:18:45.647Z</lastmod>
+    <lastmod>2018-01-21T15:42:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/09/17/underscore%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-%E5%B0%8F%E6%8A%80%E5%B7%A7-md/</loc>
+    
+    <lastmod>2016-09-17T14:19:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/09/16/underscore%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-restArgs/</loc>
+    
+    <lastmod>2016-09-16T12:15:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/about/index.html</loc>
+    
+    <lastmod>2016-09-12T14:41:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/07/12/%E4%BD%BF%E7%94%A8canvas%E7%BB%98%E5%9B%BE/</loc>
+    
+    <lastmod>2016-07-12T15:06:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/29/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B/</loc>
+    
+    <lastmod>2016-06-28T23:34:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/16/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</loc>
+    
+    <lastmod>2016-06-15T23:52:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/14/%E4%BA%8B%E4%BB%B6/</loc>
+    
+    <lastmod>2016-06-14T14:45:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/13/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/</loc>
+    
+    <lastmod>2016-06-13T15:57:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/12/js%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</loc>
+    
+    <lastmod>2016-06-13T14:36:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/12/js%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7/</loc>
+    
+    <lastmod>2016-06-13T14:20:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chen4342024.github.io/2016/06/12/%E4%BD%BF%E7%94%A8Fiddler%E8%B0%83%E8%AF%95%E5%BE%AE%E4%BF%A1jssdk/</loc>
+    
+    <lastmod>2016-06-13T14:19:02.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://chen4342024.github.io/categories/index.html</loc>
     
-    <lastmod>2016-06-11T06:53:35.254Z</lastmod>
+    <lastmod>2016-06-11T06:53:35.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://chen4342024.github.io/tags/index.html</loc>
     
-    <lastmod>2016-06-11T06:47:04.777Z</lastmod>
+    <lastmod>2016-06-11T06:47:04.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://chen4342024.github.io/404/index.html</loc>
     
-    <lastmod>2016-06-11T06:42:54.808Z</lastmod>
+    <lastmod>2016-06-11T06:42:54.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://chen4342024.github.io/404.html</loc>
     
-    <lastmod>2016-06-10T15:01:18.869Z</lastmod>
+    <lastmod>2016-06-10T15:01:18.000Z</lastmod>
     
   </url>
   

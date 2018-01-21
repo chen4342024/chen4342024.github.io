@@ -85,14 +85,16 @@
 
 
 <meta name="description" content="underscore源码分析如何实现不定参数使用过underscore.js 的人，肯定都使用过以下几个方法：1234_.without(array, *values) //返回一个删除所有values值后的array副本_.union(*arrays) //返回传入的arrays（数组）并集_.difference(array, *others)//返回来自array参数数组，并且不存在于oth">
+<meta name="keywords" content="js,underscore">
 <meta property="og:type" content="article">
-<meta property="og:title" content="underscore源码解读 ==> restArgs">
+<meta property="og:title" content="underscore源码解读 ==&gt; restArgs">
 <meta property="og:url" content="http://chen4342024.github.io/2016/09/16/underscore源码解读-restArgs/index.html">
 <meta property="og:site_name" content="Andy_chen的博客">
 <meta property="og:description" content="underscore源码分析如何实现不定参数使用过underscore.js 的人，肯定都使用过以下几个方法：1234_.without(array, *values) //返回一个删除所有values值后的array副本_.union(*arrays) //返回传入的arrays（数组）并集_.difference(array, *others)//返回来自array参数数组，并且不存在于oth">
-<meta property="og:updated_time" content="2016-09-16T12:15:39.034Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-09-16T12:15:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="underscore源码解读 ==> restArgs">
+<meta name="twitter:title" content="underscore源码解读 ==&gt; restArgs">
 <meta name="twitter:description" content="underscore源码分析如何实现不定参数使用过underscore.js 的人，肯定都使用过以下几个方法：1234_.without(array, *values) //返回一个删除所有values值后的array副本_.union(*arrays) //返回传入的arrays（数组）并集_.difference(array, *others)//返回来自array参数数组，并且不存在于oth">
 
 
@@ -481,7 +483,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -489,7 +491,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -498,7 +500,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -574,8 +576,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

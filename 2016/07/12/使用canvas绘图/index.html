@@ -84,29 +84,22 @@
 
 
 
-<meta name="description" content="使用canvas绘图HTML5添加的最受欢迎的功能就是&amp;lt;canvas&amp;gt;元素，这个元素负责在页面中设定一个区域，然后就可以通过javascript动态的在这个区域中绘制图形
-基本用法
-使用canvas元素，必须指定width，height属性
-开始标签和结束标签之间的内容，是后备信息。如果浏览器不支持canvas，则显示该信息&amp;lt;canvas id=&amp;quot;drawing&amp;quo">
+<meta name="description" content="使用canvas绘图HTML5添加的最受欢迎的功能就是&amp;lt;canvas&amp;gt;元素，这个元素负责在页面中设定一个区域，然后就可以通过javascript动态的在这个区域中绘制图形 基本用法 使用canvas元素，必须指定width，height属性 开始标签和结束标签之间的内容，是后备信息。如果浏览器不支持canvas，则显示该信息&amp;lt;canvas id=&amp;quot;drawing&amp;quo">
+<meta name="keywords" content="canvas,绘图,html5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用canvas绘图">
 <meta property="og:url" content="http://chen4342024.github.io/2016/07/12/使用canvas绘图/index.html">
 <meta property="og:site_name" content="Andy_chen的博客">
-<meta property="og:description" content="使用canvas绘图HTML5添加的最受欢迎的功能就是&amp;lt;canvas&amp;gt;元素，这个元素负责在页面中设定一个区域，然后就可以通过javascript动态的在这个区域中绘制图形
-基本用法
-使用canvas元素，必须指定width，height属性
-开始标签和结束标签之间的内容，是后备信息。如果浏览器不支持canvas，则显示该信息&amp;lt;canvas id=&amp;quot;drawing&amp;quo">
+<meta property="og:description" content="使用canvas绘图HTML5添加的最受欢迎的功能就是&amp;lt;canvas&amp;gt;元素，这个元素负责在页面中设定一个区域，然后就可以通过javascript动态的在这个区域中绘制图形 基本用法 使用canvas元素，必须指定width，height属性 开始标签和结束标签之间的内容，是后备信息。如果浏览器不支持canvas，则显示该信息&amp;lt;canvas id=&amp;quot;drawing&amp;quo">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://chen4342024.github.io/uploads/canvas_1.png">
 <meta property="og:image" content="http://chen4342024.github.io/uploads/canvas_2.png">
 <meta property="og:image" content="http://chen4342024.github.io/uploads/canvas_3.png">
 <meta property="og:image" content="http://chen4342024.github.io/uploads/canvas_4.png">
-<meta property="og:updated_time" content="2016-07-12T15:06:54.147Z">
+<meta property="og:updated_time" content="2016-07-12T15:06:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用canvas绘图">
-<meta name="twitter:description" content="使用canvas绘图HTML5添加的最受欢迎的功能就是&amp;lt;canvas&amp;gt;元素，这个元素负责在页面中设定一个区域，然后就可以通过javascript动态的在这个区域中绘制图形
-基本用法
-使用canvas元素，必须指定width，height属性
-开始标签和结束标签之间的内容，是后备信息。如果浏览器不支持canvas，则显示该信息&amp;lt;canvas id=&amp;quot;drawing&amp;quo">
+<meta name="twitter:description" content="使用canvas绘图HTML5添加的最受欢迎的功能就是&amp;lt;canvas&amp;gt;元素，这个元素负责在页面中设定一个区域，然后就可以通过javascript动态的在这个区域中绘制图形 基本用法 使用canvas元素，必须指定width，height属性 开始标签和结束标签之间的内容，是后备信息。如果浏览器不支持canvas，则显示该信息&amp;lt;canvas id=&amp;quot;drawing&amp;quo">
 <meta name="twitter:image" content="http://chen4342024.github.io/uploads/canvas_1.png">
 
 
@@ -403,7 +396,7 @@
 <h4 id="使用图像数据"><a href="#使用图像数据" class="headerlink" title="使用图像数据"></a>使用图像数据</h4><p>2D上下文有个长处，可以通过getImageData()取得原始图像数据.<br>这个方法非常有用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var imageData = context.getImageData(10,5,50,50);//(10,5)左上角，大小为50*50的区域的图像数据</span><br></pre></td></tr></table></figure></p>
 <p>让我做一个灰阶过滤器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var drawing = document.getElementById(&quot;drawing&quot;);</span><br><span class="line">if (drawing.getContext) &#123;</span><br><span class="line">    var context = drawing.getContext(&quot;2d&quot;);</span><br><span class="line">	var img = document.images[0];</span><br><span class="line">	context.drawImage(img, 0, 0);</span><br><span class="line">	var imageData = context.getImageData(0, 0, img.width, img.height);</span><br><span class="line">	var data = imageData.data;</span><br><span class="line">	var red, green, blue, alpha, average;</span><br><span class="line">	//对图像数据的red green blue 进行处理</span><br><span class="line">	for (var i = 0, len = data.length; i &lt; len; i += 4) &#123;</span><br><span class="line">	    red = data[i];</span><br><span class="line">	    green = data[i + 1];</span><br><span class="line">	    blue = data[i + 2];</span><br><span class="line">	    alpha = data[i + 3];</span><br><span class="line">	    average = Math.floor((red + green + blue) / 3);</span><br><span class="line">	    data[i] = red + 100;</span><br><span class="line">	    data[i + 1] = green + 100;</span><br><span class="line">	    data[i + 2] = blue + 100;</span><br><span class="line">	&#125;</span><br><span class="line">	imageData.data = data;</span><br><span class="line">	context.putImageData(imageData, 0, img.height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>结果：分别是处理前和处理后。<br><img src="/uploads/canvas_4.png" alt=""></p>
-<p>图像数据除了做灰阶过滤器，还有很多其他功能，例如 锐化、亮度之类的，有兴趣的可以到这里了解下：<br><a href="http://www.html5rocks.com/en/tutorials/canvas/imagefilters/" target="_blank" rel="external">http://www.html5rocks.com/en/tutorials/canvas/imagefilters/</a> ，请自备梯子</p>
+<p>图像数据除了做灰阶过滤器，还有很多其他功能，例如 锐化、亮度之类的，有兴趣的可以到这里了解下：<br><a href="http://www.html5rocks.com/en/tutorials/canvas/imagefilters/" target="_blank" rel="noopener">http://www.html5rocks.com/en/tutorials/canvas/imagefilters/</a> ，请自备梯子</p>
 <h4 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h4><p>2d上下文还有其他的以下功能： 阴影、渐变、 模式、 合成，这些就不细讲了！</p>
 <p>: )</p>
 <p>﻿</p>
@@ -549,7 +542,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -557,7 +550,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -566,7 +559,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -642,8 +635,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
